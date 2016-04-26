@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en" ng-app="LinkedInCVPage">
+
+<head>
+	<meta charset="utf-8">
+	<title>LinkedIn CV Page</title>
+	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/flatly/bootstrap.min.css">
+	<link rel="stylesheet" href="css/app.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/animations.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/filters.js"></script>
+	<script src="js/services.js"></script>
+</head>
+
+<body>
+	<div class="view-container">
+		<div ng-view class="view-frame wrapper">
+			<div class="profile-card">
+				<div class="profile-picture">
+					<img src="img/jeffweiner/avatar.jpg" alt="jeff weiner" height="240" width="240">
+				</div>
+				<div class="profile-overview">
+					<div class="profile-overview-content">
+						<div class="account-icon"> <span class="fp-degree-icon">
+                            <abbr aria-hidden="true" title="Jeff Weiner is a 3rd degree connection" class="degree-icon ">3<sup>rd</sup></abbr>
+                        </span>
+							<a href="#" class="fluence-icon" title="Jeff is a LinkedIn Influencer"></a>
+						</div>
+						<div class="basic-info">
+							<h1><span>Jeff Weiner</span></h1>
+							<p class="title">CEO at LinkedIn</p> <a href="#" title="Find other members in San Francisco Bay Area">San Francisco Bay Area</a>
+							<a class="locality" href="#" title="Find other members in this industry">Internet</a>
+						</div>
+						<table>
+							<tr>
+								<td><a href="#">Current</a>
+								</td>
+								<td>LinkedIn, Intuit, DonorChoose</td>
+							</tr>
+							<tr>
+								<td><a href="#">Previuos</a>
+								</td>
+								<td>Malaria No More, Accel Partners, Greylock</td>
+							</tr>
+							<tr>
+								<td><a href="#">Education</a>
+								</td>
+								<td>University of Pennsylvania - The Wharton School</td>
+							</tr>
+						</table>
+					</div>
+					<div class="profile-aux">
+						<div class="follower-count"><strong>4,039,047</strong>followers</div>
+						<div class="group-btn">
+							<button class="btn-primary btn-follow" type="button">Follow</button>
+							<button class="btn-primary dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown"><span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">HTML</a>
+								</li>
+								<li><a href="#">CSS</a>
+								</li>
+								<li><a href="#">JavaScript</a>
+								</li>
+							</ul>
+						</div>
+						<div class="follow-supplemental-action">
+							<p class="action-description">Know Jeff?<a class="connect" href="#">Connect</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="profile-card-extras">
+					<div class="profile-actions">
+						<ul> <a href="https://www.linkedin.com/in/jeffweiner08" class="view-public-profile">https://www.linkedin.com/in/jeffweiner08</a>
+						</ul>
+					</div>
+					<div class="show-more-infor"> <a href="#" id="contact-info-tab"><span class="contact">Contact Info</span></a>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="profile">
+				<div id="background" class="profile-background">
+					<h2>Background</h2>
+					<div class="background-content">
+						<div id="background-summary-container" class="background-section">
+							<div id="background-summary" class="background-summary edit-default">
+								<div class="summary-header">
+                                    <img class="ic_back" src="img/ic.png">
+									<h3>Summary</h3>
+								</div>
+								<div class="summary-content">
+									<p class="description">Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy.
+                                    <br>
+                                    <br>Currently CEO atLinkedIn, the web's largest and most powerful network of professionals.
+                                    <br>
+                                    <br>Prior to LinkedIn, was an Executive in Residence at Accel Partners and Greylock Partners. Primarily focused on advising the leadership teams of the firm's existing consumer technology portfolio companies while also working closely with the firm’s partners to evaluate new investment opportunities.
+                                    <br>
+                                    <br>Previously served in key leadership roles at Yahoo! for over seven years, most recently as the Executive Vice President of Yahoo!'s Network Division managing Yahoo's consumer web product portfolio, including Yahoo's Front Page, Mail, Search, and Media products.
+                                    <br>
+                                    <br>Specialties: general management, corporate development, product development, business operations, strategy, product marketing, non-profit governance</p>
+								</div>
+							</div>
+                            
+                            <hr/> 
+                            
+                            <div class="background-experience">
+								<div class="experience-header">
+                                    <img class="ic_back" src="img/ic.png">
+									<h3>Experience</h3>
+								</div>
+								<div class="experience-content">
+                                    <div class="experience-item-view">
+                                        <div class="experince-header">
+                                            <h1><a class="position" href="#">CEO</a></h1>
+                                            <p class="organization">LinkedIn</p>
+                                            <p>December 2008 – Present (7 years 5 months)</p>
+                                        </div>
+                                        <div class="logo-organization">
+                                            <img src="img/logo-linkedin.png">
+                                        </div>
+                                        <div class="experince-summary">
+                                            <p>Connecting the world's professionals to make them more productive and successful. Since joining the company in December 2008, LinkedIn has expanded its global platform to 23 languages and more than 30 offices around the world, grown its membership base from 33M to more than 347M, and increased its revenue from $78M to over $2.2B in 2014.</p>
+                                        </div>
+                                        <div class="treasury-container">
+                                            <div class="treasury-container-item left-float">
+                                                <div class="thumnail"></div>
+                                                <p class="title-item">LinkedIn's Vision for the Next 10 Years</p>
+                                            </div>
+                                            <div class="treasury-container-item right-float">
+                                                <div class="thumnail1"></div>                             
+                                                <p class="title-item">Bloomberg: LinkedIn Growth Has Reached 'Critical Mass'</p>
+                                            </div>
+                                        </div>
+                                        <div class="treasury-container">
+                                            <div class="treasury-container-item-3col left-float">
+                                                <div class="thumnail2"></div>
+                                                <p class="title-item">LinkedIn's Culture of Transformation</p>
+                                            </div>
+                                            <div class="treasury-container-item-3col left-float">
+                                                <div class="thumnail3"></div>                             
+                                                <p class="title-item">Building a Culture of Compassion</p>
+                                            </div>
+                                            <div class="treasury-container-item-3col left-float">
+                                                <div class="thumnail4"></div>                             
+                                                <p class="title-item">NY TImes: Jeff Weiner of LinkedIn, on the 'Next Play' Philosophy</p>
+                                            </div>
+                                        </div>
+                                        <div class="see-more">
+                                            <a href="#"><span>SEE MORE</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="experience-item-view">
+                                        <div class="experince-header">
+                                            <h1><a class="position" href="#">Member, Board of Directors</a></h1>
+                                            <p class="organization">Intuit</p>
+                                            <p>April 2012 – Present (4 years 1 month)Mountain View, CA</p>
+                                        </div>
+                                        <div class="logo-organization">
+                                            <img src="img/logo-intuit.png">
+                                        </div>
+                                        <div class="experince-summary">
+                                            <p>With revenue of $4B+ and approximately 8,000 employees, Intuit is a leading provider of innovative business and financial management solutions for small and medium-sized businesses, consumers, accounting professionals and financial institutions.</p>
+                                        </div>                                        
+                                    </div>                                    
+                                    <div class="experience-item-view">
+                                        <div class="experince-header">
+                                            <h1><a class="position" href="#">Member, Board of Directors</a></h1>
+                                            <p class="organization">DonorsChoose</p>
+                                            <p>2007 – Present (9 years)</p>
+                                        </div>
+                                        <div class="logo-organization">
+                                            <img src="img/logo-g.png">
+                                        </div>
+                                        <div class="experince-summary">
+                                            <p>One of the web's leading philanthropic marketplaces, designed to enable teachers to upload classroom projects in need of funding, and for anyone to select and fund a project.</p>
+                                        </div>   
+                                        <div class="recommention">
+                                            <div class="recommention-count">
+                                                <p>► 1 recommendation</p>
+                                            </div>
+                                            <div class="avatar left-float"><img src="img/av1.jpg" width="40px" height="40px"></div>
+                                            <div class="sumary-info left-float">
+                                                <a class="connect" href="#">Adam Rifkin</a>
+                                                <p>Co-Founder of PandaWhale</p>
+                                            </div>
+                                            <p class="comment">Jeff Weiner is a mentor to me and a singularly effective champion of DonorsChoose.org. His “consumer product instinct” has shaped the user experience of our website. His introductions have generated more than $1 million in funding. </p>
+                                        </div>
+                                    </div>
+								</div>
+							</div>  
+                            
+                            <hr/>
+                            
+                            <div id="background-skills">
+								<div class="skills-header">
+                                    <img class="ic_back" src="img/ic.png">
+									<h3>Skills</h3>
+								</div>
+                                <p class="skill">Top Skills</p>
+                                <div class="skill-content">
+                                    <div class="skill-item">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Business Strategy</button>
+                                    </div>
+                                    <div class="skill-item">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Leadership</button>
+                                    </div>
+                                    <div class="skill-item">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Strategy</button>
+                                    </div>
+                                    <div class="skill-item">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Entrepreneurship</button>
+                                    </div>
+                                    <div class="skill-item">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Product Marketing</button>
+                                    </div>
+                                    <div class="skill-item">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Strategic Planning</button>
+                                    </div>
+                                    <div class="skill-item">
+                                        <button class="btn-primary btn-skill" type="button">96</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Executive Management</button>
+                                    </div>
+                                    <div class="skill-item">
+                                        <button class="btn-primary btn-skill" type="button">87</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Product Development</button>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                                <p class="skill">Jeff also knows about...</p>
+                                <div class="skill-content">
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Business Strategy</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Leadership</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Strategy</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Entrepreneurship</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Product Marketing</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Strategic Planning</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">96</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Executive Management</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">87</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Product Development</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Product Marketing</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Strategic Planning</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">96</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Executive Management</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">87</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Product Development</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Product Marketing</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">99+</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Strategic Planning</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">96</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Executive Management</button>
+                                    </div>
+                                    <div class="skill-item-more">
+                                        <button class="btn-primary btn-skill" type="button">87</button>
+                                        <button class="btn-primary btn-skill-detail" type="button">Product Development</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                            
+                            <hr/>
+                            
+                            <div id="background-educations">
+								<div class="educations-header">
+                                    <img class="ic_back" src="img/ic.png">
+									<h3>Education</h3>
+								</div>
+                                <div class="educations-content">
+                                    <div class="educations-header left-float">
+                                            <h1><a class="schools" href="#">University of Pennsylvania - The Wharton School</a></h1>
+                                            <p class="address">Bachelor of Science, Economics</p>
+                                            <p>1988 – June 1992</p>
+                                        </div>
+                                        <div class="logo-organization">
+                                            <img src="img/school.png" height="80px">
+                                        </div>                                        
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</body>
+
+</html>
