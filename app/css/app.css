@@ -121,7 +121,7 @@ h1 {
 
 .wrapper {
     width: 974px;
-    margin: auto;
+    margin: auto;    
     font-size: 13px;
     line-height: 17px;
     color: #333;
@@ -131,7 +131,6 @@ h1 {
 .profile-picture {
     height: 240px;
     width: 240px;
-    line-height: 240px;
     margin: 0;
 }
 
@@ -141,7 +140,7 @@ h1 {
     height: 240px;
     float: right;
     position: relative;
-    background: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 
@@ -152,6 +151,8 @@ div {
 
 .title {
     font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-weight: normal;
     color: #434649;
 }
@@ -164,6 +165,21 @@ a {
     color: #66696a;
     font-weight: normal;
     text-decoration: none;
+}
+
+.see-more a {
+    font-family: arial;
+    font-weight: bold !important;
+}
+
+p a {
+    font-size: 16px !important;
+    color: #66696a !important;
+}
+
+p a:hover {
+    font-size: 16px !important;
+    color: #006fa6 !important;
 }
 
 
@@ -307,8 +323,14 @@ table {
 }
 
 .connect {
+    margin-top: 0px !important;
+    font-size: 13px !important;
     color: #006fa6 !important;
     font-weight: bold;
+}
+
+.connect:hover {
+    font-size: 13px !important;
 }
 
 .action-description {
@@ -329,6 +351,10 @@ p {
     margin-bottom: 4px;
     margin-top: 4px;
     text-align: justify;
+}
+
+follow-supplemental-action p {
+    margin-bottom: 0px !important;
 }
 .profile-aux p {
     padding: 0;
@@ -380,6 +406,7 @@ p {
 
 #contact-info-tab {
     vertical-align: middle;
+    padding-left: 25px;
     color: #666;
     background: url(/app/img/sprite_profile_top_card_v8.png) no-repeat 0 -99px;
 }
@@ -648,6 +675,7 @@ h3 {
 
 .see-more {
     margin: 0 auto;
+    padding-top: 15px;
     text-align: center;
     font-weight: bold !important;
     width: 100px;
@@ -657,20 +685,20 @@ h3 {
     margin-top: 15px;
 }
 
-.position {
+h1 a {
     font-size: 16px !important;
     color: #333 !important;
     font-weight: bold;
 }
 
-.position:hover {
-    color: #006fa6;
+h1 a:hover {
+    color: #006fa6 !important;
 }
 
 .recommention {
     margin-left: 15px;
     margin-right: 15px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .sumary-info {
@@ -766,4 +794,32 @@ h3 {
 
 .skill-top-skill {
     font-size: 14px;
+}
+
+td a {
+    color: #333 !important;
+}
+
+td a:hover {
+    color: #006fa6 !important;
+}
+
+.recommention-count {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+.summary-title {
+    color: #96999c !important;
+}
+
+.top-background {
+    background: url(/app/img/header-bg.jpg) no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+
+.profile-wrapper {
+    margin-top: -200px;
 }
