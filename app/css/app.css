@@ -328,6 +328,7 @@ table {
 p {
     margin-bottom: 4px;
     margin-top: 4px;
+    text-align: justify;
 }
 .profile-aux p {
     padding: 0;

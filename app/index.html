@@ -1,22 +1,25 @@
 <!doctype html>
-<html lang="en" ng-app="CVPage">
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<title>LinkedIn CV Page</title>
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/flatly/bootstrap.min.css">
 	<link rel="stylesheet" href="css/app.css">
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>	
+    
+    <script src="js/controllers.js"></script>
 	<script src="js/app.js"></script>
-	<script src="js/animations.js"></script>
-	<script src="js/controllers.js"></script>
+	<script src="js/animations.js"></script>	
 	<script src="js/filters.js"></script>
 	<script src="js/services.js"></script>
 </head>
 
-<body ng-controller="CVPageCtrl">
+<body ng-app="CVPage" ng-controller="CVPageCtrl">
 	<div class="view-container">
 		<div ng-view class="view-frame wrapper">
             <!--Profile card-->
@@ -31,9 +34,9 @@
 							<a href="#" class="fluence-icon" title="Jeff is a LinkedIn Influencer"></a>
 						</div>
 						<div class="basic-info">
-							<h1><span>Jeff Weiner</span></h1>
+							<h1><span>{{ profile.firstName + " " + profile.lastName }}</span></h1>
 							<p class="title">CEO at LinkedIn</p> 
-                            <a href="#" title="Find other members in San Francisco Bay Area">San Francisco Bay Area</a>
+                            <a href="#" title="Find other members in San Francisco Bay Area">{{profile.address}}</a>
 							<a class="locality" href="#" title="Find other members in this industry">Internet</a>
 						</div>
 						<table>
@@ -55,7 +58,7 @@
 						</table>
 					</div>
 					<div class="profile-aux">
-						<div class="follower-count right-float"><strong>4,039,047</strong>followers</div>
+						<div class="follower-count right-float"><strong>{{profile.followers}}</strong>followers</div>
 						<div class="group-btn">
 							<button class="btn-primary btn-follow" type="button">Follow</button>
 							<button class="btn-primary dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown">
@@ -71,7 +74,7 @@
 							</ul>
 						</div>
 						<div class="follow-supplemental-action">
-							<p class="action-description">Know Jeff?<a class="connect" href="#">Connect</a>
+							<p class="action-description">Know {{profile.firstName}}?<a class="connect" href="#">Connect</a>
 							</p>
 						</div>
 					</div>
@@ -79,7 +82,7 @@
 				<div class="clear"></div>
 				<div class="profile-card-extras">
 					<div class="profile-actions">
-						<ul> <a href="https://www.linkedin.com/in/jeffweiner08" class="view-public-profile">https://www.linkedin.com/in/jeffweiner08</a>
+						<ul> <a href="{{profile.profilePage}}" class="view-public-profile">{{profile.profilePage}}</a>
 						</ul>
 					</div>
 					<div class="show-more-infor"> <a href="#" id="contact-info-tab">Contact Info</a>
@@ -98,15 +101,7 @@
 									<h3>Summary</h3>
 								</div>
 								<div class="summary-content">
-									<p>Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy.
-										<br>
-										<br>Currently CEO atLinkedIn, the web's largest and most powerful network of professionals.
-										<br>
-										<br>Prior to LinkedIn, was an Executive in Residence at Accel Partners and Greylock Partners. Primarily focused on advising the leadership teams of the firm's existing consumer technology portfolio companies while also working closely with the firm’s partners to evaluate new investment opportunities.
-										<br>
-										<br>Previously served in key leadership roles at Yahoo! for over seven years, most recently as the Executive Vice President of Yahoo!'s Network Division managing Yahoo's consumer web product portfolio, including Yahoo's Front Page, Mail, Search, and Media products.
-										<br>
-										<br>Specialties: general management, corporate development, product development, business operations, strategy, product marketing, non-profit governance</p>
+									<p ng-bind-html="profile.summary"></p>
 								</div>
 							</div>                        
 							<hr/>                        
