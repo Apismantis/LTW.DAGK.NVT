@@ -106,6 +106,61 @@
 		}
 	],
 	
+	"projects": 
+	[
+		{
+			"projectName": "BBDO Migration",
+			"time": "November 2014 – March 2015",
+			"description": "This project is to migration current system on Sharepoint 2007, 2010 to Sharepoint 2013.",
+			"teamMember": 
+			[
+				{
+					"name": "Huong Doan",
+					"position": "Software Project Manager at FPT Software",
+					"avatar": "img/av1.jpg"
+				},
+				{
+					"name": "Nguyen Anh Linh",
+					"position": "Software Project Manager at FPT Software",
+					"avatar": "img/av3.jpg"
+				},
+				{
+					"name": "Nguyen Hoang Giang",
+					"position": "Software Project Manager at FPT Software",
+					"avatar": "img/av4.jpg"
+				},
+				{
+					"name": "Do Van Thinh",
+					"position": "Software Project Manager at FPT Software",
+					"avatar": "img/av2.jpg"
+				}
+			]
+		},
+		{
+			"projectName": "Tripwire",
+			"time": "October 2005 – April 2007",
+			"description": "This project is to migration current system on Sharepoint 2007, 2010 to Sharepoint 2013."
+		},
+		{
+			"projectName": "ORT",
+			"time": "January 2014 – September 2014",
+			"description": "This project is to design and develop marketing management system using SharePoint for a German companies to provide a complete solution for marketing for many customers like Vodafone, Lufthansa, Monster, … ",
+			"teamMember": 
+			[
+				{
+					"name": "Huong Doan",
+					"position": "Software Project Manager at FPT Software",
+					"avatar": "img/av1.jpg"
+				},
+				{
+					"name": "Hung Cao",
+					"position": "SDE2 - Contractor at Microsoft",
+					"avatar": "img/av3.jpg"
+				}
+			]
+		}
+	],
+	
 	"topSkills":
 	[
 		{

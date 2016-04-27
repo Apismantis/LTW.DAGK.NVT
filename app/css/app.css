@@ -525,6 +525,18 @@ h3 {
     content: "\e039";
 }
 
+.project-header h3:before {
+    font-family: "LinkedIn-Glyphs-2.0.7","LinkedIn-Glyphs";
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    speak: none;
+    padding-right: 15px;
+    font-size: 32px;
+    color: inherit;
+    content: "\e03e";
+}
+
 .skills-header h3:before {
     font-family: "LinkedIn-Glyphs-2.0.7","LinkedIn-Glyphs";
     font-weight: normal;
@@ -560,7 +572,7 @@ h3 {
     margin-top: 25px;
 }
 
-.background-experience {
+.background-project {
     padding-top: 5px;
 }
 
@@ -579,13 +591,23 @@ h3 {
 
 .experince-header {
     float: left;
+    padding-top: 10px;
+}
+
+.project-header {
+    float: left;
 }
 
 .logo-organization {
     float: right;
+    padding-top: 15px;
 }
 
 .experince-summary {
+    clear: both;
+}
+
+.project-summary {
     clear: both;
 }
 
@@ -681,7 +703,7 @@ h3 {
     width: 100px;
 }
 
-.experience-item-view {
+.prject-item-view {
     margin-top: 15px;
 }
 
@@ -701,8 +723,15 @@ h1 a:hover {
     margin-top: 10px;
 }
 
+.team-member {
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 48%;
+    display: block;
+}
+
 .sumary-info {
-    padding-top: 5px;
     padding-left: 10px;
     vertical-align: middle;
     height: 40px;
@@ -810,6 +839,12 @@ td a:hover {
     margin-top: 15px;
 }
 
+.team-member-count {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
 .summary-title {
     color: #96999c !important;
 }
@@ -822,4 +857,43 @@ td a:hover {
 
 .profile-wrapper {
     margin-top: -200px;
+}
+
+.experience-header {
+    float: left;
+}
+
+.experience-content {
+    clear: both;
+}
+
+.project-content {
+    clear: both;
+}
+
+.project-item-view {
+    clear: both;
+    padding-top: 15px;
+}
+
+.project-item-view:first-child {
+    padding-top: 0px;
+}
+
+.educations-content {
+    clear: both;
+    padding-top: 15px;
+}
+
+.educations-content:first-child {
+    padding-top: 0px;
+}
+
+.experience-item-view {
+    clear: both;
+    padding-top: 15px;
+}
+
+.experience-item-view:first-child {
+    padding-top: 0px;
 }
