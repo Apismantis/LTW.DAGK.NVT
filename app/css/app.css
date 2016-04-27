@@ -1,4 +1,18 @@
-/* app css stylesheet */
+@font-face {
+    font-family:"LinkedIn-Glyphs";
+    src:url('/app/fonts/LinkedIn-Glyphs-16px.eot');
+    src:url('/app/fonts/LinkedIn-Glyphs-16px.eot?#iefix') format('embedded-opentype'), url('/app/fonts/LinkedIn-Glyphs-16px.woff') format('woff'), url('/app/fonts/LinkedIn-Glyphs-16px.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"LinkedIn-Glyphs-2.0.7";
+    src:url('/app/fonts/LinkedIn-Glyphs-16px.eot');
+    src:url('/app/fonts/LinkedIn-Glyphs-16px.eot?#iefix') format('embedded-opentype'), url('/app/fonts/LinkedIn-Glyphs-16px.woff') format('woff'), url('/app/fonts/LinkedIn-Glyphs-16px.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
 
 body {
     background: url(/app/img/bg.png);
@@ -100,6 +114,7 @@ h1 {
     line-height: 24px;
     font-weight: bold;
     margin: 0;
+    font-family: arial;
 }
 
 
@@ -117,7 +132,6 @@ h1 {
     height: 240px;
     width: 240px;
     line-height: 240px;
-    float: left;
     margin: 0;
 }
 
@@ -187,7 +201,7 @@ a:hover {
 
 .fluence-icon {
     background-image: url(/app/img/icon.png);
-    background-position: 0px 0px !importantS;
+    background-position: 0px 0px;
     width: 90px;
     height: 22px;
     margin-left: 4px;
@@ -228,7 +242,7 @@ sup {
 }
 
 tr {
-    padding-top: 2px;
+    padding-top: 3px;
 }
 
 td {
@@ -244,7 +258,6 @@ table {
 .follower-count {
     font-size: 11px;
     color: #999;
-    float: right;
     padding: 7px 0 0 10px;
     line-height: 15px;
     vertical-align: bottom;
@@ -254,7 +267,7 @@ table {
 .profile-card strong {
     color: #333;
     font-size: 18px;
-    line-height: 14px;
+    line-height: 18px;
     display: block;
 }
 
@@ -286,6 +299,7 @@ table {
 }
 
 .follow-supplemental-action {
+    margin-top: -2px;
     padding-left: 10px;
     max-width: 100px;
     display: inline-block;
@@ -298,9 +312,7 @@ table {
 }
 
 .action-description {
-    vertical-align: middle;
     font-size: 12px;
-    line-height: 14px;
     color: #333;
     font-weight: normal;
 }
@@ -314,7 +326,8 @@ table {
 }
 
 p {
-    margin: 0;
+    margin-bottom: 4px;
+    margin-top: 4px;
 }
 .profile-aux p {
     padding: 0;
@@ -334,7 +347,7 @@ p {
 
 .profile-actions {
     font-size: 11px;
-    padding-top: 8px;
+    padding-top: 9px;
     padding-left: 21px;
     float: left;
 }
@@ -353,7 +366,7 @@ p {
     float: right;
     display: inline-block;
     border-left: 1px solid #ccc;
-    padding: 8px 10px 7px 10px;
+    padding: 10px 10px 8px 10px;
     background-color: #ececec;
     background-image: -webkit-linear-gradient(top, #ececec 0%,#e1e1e1 100%);
     background-image: -moz-linear-gradient(top, #ececec 0%,#e1e1e1 100%);
@@ -365,16 +378,14 @@ p {
 }
 
 #contact-info-tab {
-    display: inline-block;
     vertical-align: middle;
-    border-left: 1px solid #ccc;
-    padding: 1px 10px 1px 1px;
     color: #666;
     background: url(/app/img/sprite_profile_top_card_v8.png) no-repeat 0 -99px;
 }
 
 #contact-info-tab:hover {
     background-position: 0 -148px;
+    color: #006fa6;
 }
 
 .profile {
@@ -400,6 +411,7 @@ h2 {
     display: inline-block;
     vertical-align: middle;
     word-wrap: normal;
+    font-family: arial;
 }
 
 
@@ -458,13 +470,70 @@ h3 {
     font-weight: normal;
     line-height: 18px;
     color: #434649;
+    font-family: arial, sans-serif;
 }
 
-hr {
+.educations-header h3:before {
+    font-family: "LinkedIn-Glyphs-2.0.7","LinkedIn-Glyphs";
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    speak: none;
+    padding-right: 15px;
+    font-size: 32px;
+    color: inherit;
+    content: "\e03b";
+}
+
+.summary-header h3:before {
+    font-family: "LinkedIn-Glyphs-2.0.7","LinkedIn-Glyphs";
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    speak: none;
+    padding-right: 15px;
+    font-size: 32px;
+    color: inherit;
+    content: "\e039";
+}
+
+.skills-header h3:before {
+    font-family: "LinkedIn-Glyphs-2.0.7","LinkedIn-Glyphs";
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    speak: none;
+    padding-right: 15px;
+    font-size: 32px;
+    color: inherit;
+    content: "\e03c";
+}
+
+.experience-header h3:before {
+    font-family: "LinkedIn-Glyphs-2.0.7","LinkedIn-Glyphs";
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    speak: none;
+    padding-right: 15px;
+    font-size: 32px;
+    color: inherit;
+    content: "\e03a";
+}
+
+
+
+
+
+#background hr {
+    border-width: 1px #333;
+    display: block;
+    border-style: inset;
+    margin-top: 25px;
 }
 
 .background-experience {
-    
+    padding-top: 5px;
 }
 
 .background-experience .experience-content h1 {
@@ -490,7 +559,6 @@ hr {
 
 .experince-summary {
     clear: both;
-    padding-top: 10px;
 }
 
 .thumnail {
@@ -580,6 +648,7 @@ hr {
 .see-more {
     margin: 0 auto;
     text-align: center;
+    font-weight: bold !important;
     width: 100px;
 }
 
@@ -688,4 +757,12 @@ hr {
     color: #66696a;
     font-weight: normal;
     text-decoration: none;
+}
+
+.background-content {
+    margin-top: 15px;
+}
+
+.skill-top-skill {
+    font-size: 14px;
 }
