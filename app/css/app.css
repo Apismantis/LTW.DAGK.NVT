@@ -243,10 +243,10 @@ sup {
 }
 
 tr {
-    padding-top: 3px;
+    padding-top: 4px;
 }
 
-td {
+td:first-child {
     padding-right: 20px;
 }
 
@@ -543,7 +543,7 @@ h3 {
     margin-top: 25px;
 }
 
-.background-project {
+#background-project {
     padding-top: 5px;
 }
 
@@ -859,4 +859,35 @@ td a:hover {
 
 .experience-item-view:first-child {
     padding-top: 0px;
+}
+
+.btn-edit {
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.modal-body label {
+    padding-bottom: 5px;
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.headline {
+    padding-top: 8px;
+}
+
+h4 {
+    font-family: arial;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.sumaryExperience {
+    padding-top: -15px;
+}
+
+.summaryExperience {
+    margin-top: -22px;
 }
