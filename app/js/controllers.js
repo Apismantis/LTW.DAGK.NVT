@@ -41,35 +41,33 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
         $scope.profile.summary = $scope.newSummary;
     }
 
-    var dialogOptions = {
-        controller: 'CVPageCtrl',
-        templateUrl: 'editExperience.html'
-    };
+    $scope.EditExperienceItem = {};
+    $scope.GetCurrentExperience = function ($index) {
+        $scope.indexCurrentExp = $index;
+        angular.copy($scope.profile.currentExperience[$scope.indexCurrentExp], $scope.EditExperienceItem);
+    }
 
-    $scope.SaveExperience = function(item){
+    $scope.SaveExperience = function () {
+        angular.copy($scope.EditExperienceItem, $scope.profile.currentExperience[$scope.indexCurrentExp]);
+    }
 
-        var itemToEdit = item;
+    $scope.EditPreviousExperienceItem = {};
+    $scope.GetPreviousExperience = function ($index) {
+        $scope.indexPreExp = $index;
+        angular.copy($scope.profile.previuosExperience[$scope.indexPreExp], $scope.EditPreviousExperienceItem);
+    }
 
-        $dialog.dialog(angular.extend(dialogOptions, {resolve: {item: angular.copy(itemToEdit)}}))
-            .open()
-            .then(function(result) {
-                if(result) {
-                    angular.copy(result, itemToEdit);
-                }
-                itemToEdit = undefined;
-            });
-    };
+    $scope.SavePreviousExperience = function () {
+        angular.copy($scope.EditPreviousExperienceItem, $scope.profile.previuosExperience[$scope.indexPreExp]);
+    }
+
+    $scope.EditProjectItem = {};
+    $scope.GetProject = function ($index) {
+        $scope.indexProject = $index;
+        angular.copy($scope.profile.projects[$scope.indexProject], $scope.EditProjectItem);
+    }
+
+    $scope.SaveProject = function () {
+        angular.copy($scope.EditProjectItem, $scope.profile.projects[$scope.indexProject]);
+    }
 });
-
-// the dialog is injected in the specified controller
-function EditExperienceCtrl($scope, item, dialog){
-    $scope.item = item;
-
-    $scope.save = function() {
-        dialog.close($scope.item);
-    };
-
-    $scope.close = function(){
-        dialog.close(undefined);
-    };
-}
