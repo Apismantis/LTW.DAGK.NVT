@@ -1,11 +1,11 @@
 var CVApp = angular.module('CVPage', ['ngSanitize']);
 
 CVApp.controller('CVPageCtrl', function ($scope, $http) {
-    $http.get('profile/tuan-nguyen.json').success(function(data) {
+    $http.get('profile/tuan-nguyen.json').success(function (data) {
         $scope.profile = data;
         $scope.firstName = $scope.profile.firstName;
         $scope.lastName = $scope.profile.lastName;
-        
+
         $scope.currentPosition = $scope.profile.currentExperience[0].position;
         $scope.currentCompany = $scope.profile.currentExperience[0].organization;
 
@@ -14,24 +14,24 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
 
         $scope.newSummary = $scope.profile.summary;
     });
-    
-    $scope.isHasValueInArray = function(val) {
+
+    $scope.isHasValueInArray = function (val) {
         if (val.length > 0)
             return true;
-        
+
         return false;
     }
-    
-    $scope.SaveNewName = function() {
+
+    $scope.SaveNewName = function () {
         $scope.profile.firstName = $scope.firstName;
         $scope.profile.lastName = $scope.lastName;
     }
-    
-    $scope.SaveCurrentExperience = function() {
+
+    $scope.SaveCurrentExperience = function () {
         $scope.profile.currentExperience[0].position = $scope.currentPosition;
         $scope.profile.currentExperience[0].organization = $scope.currentCompany;
     }
-    
+
     $scope.SaveNewLocation = function () {
         $scope.profile.country = $scope.country;
         $scope.profile.industry = $scope.industry;
@@ -75,6 +75,7 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
     $scope.GetTopSkill = function ($index) {
         $scope.indexTopSkill = $index;
         angular.copy($scope.profile.topSkills[$scope.indexTopSkill], $scope.EditTopSkillItem);
+        $scope.EditTopSkillItem.rate = 90;
     }
 
     $scope.SaveTopSkill = function () {
@@ -87,6 +88,7 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
     $scope.GetOtherSkill = function ($index) {
         $scope.indexOtherSkill = $index;
         angular.copy($scope.profile.otherSkills[$scope.indexOtherSkill], $scope.EditOtherSkillItem);
+        $scope.EditOtherSkillItem.rate = 90;
     }
 
     $scope.SaveOtherSkill = function () {

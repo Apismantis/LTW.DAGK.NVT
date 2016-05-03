@@ -233,18 +233,18 @@
                             <div class="experience-item-view" ng-repeat="exp in profile.currentExperience">
                                 <div class="experince-header">
                                     <h1 class="left-float"><a href="#">{{exp.position}}</a></h1>
-                                    <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                     <p class="left-float"><a href="#">{{exp.organization}}</a>
                                     </p>
-                                    <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                     <p class="left-float">{{exp.time}}</p>
-                                    <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
@@ -313,18 +313,18 @@
                             <div class="experience-item-view" ng-repeat="exp in profile.previuosExperience">
                                 <div class="experince-header">
                                     <h1 class="left-float"><a href="#">{{exp.position}}</a></h1>
-                                    <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                     <p class="left-float"><a href="#">{{exp.organization}}</a>
                                     </p>
-                                    <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                     <p class="left-float">{{exp.time}}</p>
-                                    <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
@@ -392,12 +392,12 @@
                             <div class="project-item-view" ng-repeat="pr in profile.projects">
                                 <div class="project-header">
                                     <h1 class="left-float"><a>{{pr.projectName}}</a></h1>
-                                    <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditProject" ng-click="GetProject($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditProject" ng-click="GetProject($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                     <p class="left-float">{{pr.time}}</p>
-                                    <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditProject" ng-click="GetProject($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditProject" ng-click="GetProject($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
@@ -461,7 +461,7 @@
                             <div class="skill-item" ng-repeat="skill in profile.topSkills">
                                 <button class="btn-primary btn-skill" type="button">{{skill.rate}}</button>
                                 <button class="btn-primary btn-skill-detail" type="button">{{skill.skillName}}</button>
-                                <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditTopSkill" ng-click="GetTopSkill($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditTopSkill" ng-click="GetTopSkill($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
                                 <div class="clear"></div>
@@ -494,7 +494,7 @@
                             <div class="skill-item-more" ng-repeat="skill in profile.otherSkills">
                                 <button class="btn-primary btn-skill" type="button">{{skill.rate}}</button>
                                 <button class="btn-primary btn-skill-detail" type="button">{{skill.skillName}}</button>
-                                <a class="left-float btn-edit other-skill" href="#" data-toggle="modal" data-target="#EditOtherSkill" ng-click="GetOtherSkill($index)">
+                                <a class="left-float btn-edit other-skill btn-edit-15" href="#" data-toggle="modal" data-target="#EditOtherSkill" ng-click="GetOtherSkill($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
                             </div>
@@ -531,18 +531,18 @@
                         <div class="educations-content" ng-repeat="school in profile.education">
                             <div class="educations-header left-float">
                                 <h1 class="left-float"><a href="#">{{school.schoolName}}</a></h1>
-                                <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
                                 <div class="clear"></div>
                                 <p class="left-float"><a href="#">{{school.grade}}</a>
                                 </p>
-                                <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
                                 <div class="clear"></div>
                                 <p class="left-float">{{school.time}}</p>
-                                <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
                                 <div class="clear"></div>

@@ -1,7 +1,8 @@
 {
 	"firstName": "Jeff",	
 	"lastName": "Weiner",	
-	"address": "San Francisco Bay Area",	
+	"country": "San Francisco Bay Area",
+	"industry": "Internet",
 	"followers": "4,039,047",	
 	"profilePage": "https://www.linkedin.com/in/jeffweiner08",	
 	"avatar": "img/jeffweiner/avatar.jpg",
