@@ -864,6 +864,7 @@ td a:hover {
 .btn-edit {
     vertical-align: middle;
     margin-left: 15px;
+    padding-top: 3px;
 }
 
 .modal-body label {
@@ -890,4 +891,34 @@ h4 {
 
 .summaryExperience {
     margin-top: -22px;
+}
+
+.other-skill {
+    padding-right: 15px;
+}
+
+
+.btn-img-edit-20 {
+    background: url(../img/edit_20.png) no-repeat;
+    background-position: center center;
+    height: 20px;
+    width: 20px;
+}
+
+.btn-img-edit-20:hover {
+    background: url(../img/edit_hover_20.png) no-repeat;
+    background-position: center center;
+}
+
+
+.btn-img-edit-15 {
+    background: url(../img/edit_15.png) no-repeat;
+    background-position: center center;
+    height: 15px;
+    width: 15px;
+}
+
+.btn-img-edit-15:hover {
+    background: url(../img/edit_hover_15.png) no-repeat;
+    background-position: center center;
 }

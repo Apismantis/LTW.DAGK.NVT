@@ -70,4 +70,38 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
     $scope.SaveProject = function () {
         angular.copy($scope.EditProjectItem, $scope.profile.projects[$scope.indexProject]);
     }
+
+    $scope.EditTopSkillItem = {};
+    $scope.GetTopSkill = function ($index) {
+        $scope.indexTopSkill = $index;
+        angular.copy($scope.profile.topSkills[$scope.indexTopSkill], $scope.EditTopSkillItem);
+    }
+
+    $scope.SaveTopSkill = function () {
+        if ($scope.EditTopSkillItem.rate >= 100)
+            $scope.EditTopSkillItem.rate = "99+";
+        angular.copy($scope.EditTopSkillItem, $scope.profile.topSkills[$scope.indexTopSkill]);
+    }
+
+    $scope.EditOtherSkillItem = {};
+    $scope.GetOtherSkill = function ($index) {
+        $scope.indexOtherSkill = $index;
+        angular.copy($scope.profile.otherSkills[$scope.indexOtherSkill], $scope.EditOtherSkillItem);
+    }
+
+    $scope.SaveOtherSkill = function () {
+        if ($scope.EditOtherSkillItem.rate >= 100)
+            $scope.EditOtherSkillItem.rate = "99+";
+        angular.copy($scope.EditOtherSkillItem, $scope.profile.otherSkills[$scope.indexOtherSkill]);
+    }
+
+    $scope.EdiEducationItem = {};
+    $scope.GetEducation = function ($index) {
+        $scope.indexEducation = $index;
+        angular.copy($scope.profile.education[$scope.indexEducation], $scope.EdiEducationItem);
+    }
+
+    $scope.SaveEducation = function () {
+        angular.copy($scope.EdiEducationItem, $scope.profile.education[$scope.indexEducation]);
+    }
 });
