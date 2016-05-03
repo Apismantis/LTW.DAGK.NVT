@@ -6,10 +6,18 @@
     <title>Tuan Nguyen | LinkedIn Profile</title>
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ef8e90665825ad95d06d6fbfb39bf3c8b13306f
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ef8e90665825ad95d06d6fbfb39bf3c8b13306f
     <script src="js/controllers.js"></script>
     <script src="js/app.js"></script>
     <script src="js/animations.js"></script>
@@ -24,8 +32,12 @@
         <!--Profile card-->
         <div class="profile-card">
             <div class="profile-picture left-float">
+<<<<<<< HEAD
                 <img src="{{profile.avatar}}" alt="{{profile.firstName}} {{profile.lastName}}" height="240"
                      width="240">
+=======
+                <img src="{{profile.avatar}}" alt="jeff weiner" height="240" width="240">
+>>>>>>> 4ef8e90665825ad95d06d6fbfb39bf3c8b13306f
             </div>
             <div class="profile-overview">
                 <div class="profile-overview-content">
@@ -34,6 +46,7 @@
                         <a href="#" class="fluence-icon" title="Jeff is a LinkedIn Influencer"></a>
                     </div>
                     <div class="basic-info">
+<<<<<<< HEAD
                         <h1 class="left-float"><span>{{profile.firstName + " " + profile.lastName}}</span></h1>
                         <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditNameModal"><img
                                 src="img/edit.png" height="24px" width="24px"></a>
@@ -373,6 +386,211 @@
                             </div>
                         </div>
                         <div class="clear"></div>
+=======
+                        <h1><span>{{ profile.firstName + " " + profile.lastName }}</span></h1>
+                        <p class="title">{{profile.currentExperience[0].position}} at
+                            {{profile.currentExperience[0].organization}}</p> <a href="#"
+                                                                                 title="Find other members in San Francisco Bay Area">{{profile.address}}</a>
+                        <a class="locality" href="#" title="Find other members in this industry">Internet</a>
+                    </div>
+                    <table>
+                        <tr>
+                            <td><a class="summary-title" href="#">Current</a>
+                            </td>
+                            <td><a href="#" ng-repeat="exp in profile.currentExperience">{{exp.organization}}, </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a class="summary-title" href="#">Previuos</a>
+                            </td>
+                            <td><a href="#" ng-repeat="exp in profile.previuosExperience">{{exp.organization}}, </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a class="summary-title" href="#">Education</a>
+                            </td>
+                            <td><a href="#" ng-repeat="edu in profile.education">{{edu.schoolName}}, </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="profile-aux">
+                    <div class="follower-count right-float"><strong>{{profile.followers}}</strong>followers</div>
+                    <div class="group-btn">
+                        <button class="btn-primary btn-follow" type="button">Follow</button>
+                        <button class="btn-primary dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">View recent activity</a>
+                            </li>
+                            <li><a href="#">Send {{profile.lastName}} InMail</a>
+                            </li>
+                            <li><a href="#">Connect</a>
+                            </li>
+                            <li><a href="#">Share profile</a>
+                            </li>
+                            <li><a href="#">Save to PDF</a>
+                            </li>
+                            <li><a href="#">Block or report</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="follow-supplemental-action">
+                        <p class="action-description">Know {{profile.firstName}}?</p> <a class="connect" href="#">Connect</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="profile-card-extras">
+                <div class="profile-actions">
+                    <ul><a href="{{profile.profilePage}}" class="view-public-profile">{{profile.profilePage}}</a>
+                    </ul>
+                </div>
+                <div class="show-more-infor"><a href="#" id="contact-info-tab">Contact Info</a>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="profile">
+            <div id="background" class="profile-background">
+                <h2>Background</h2>
+                <div class="background-content">
+                    <!--Summary-->
+                    <div id="background-summary">
+                        <div class="summary-header">
+                            <h3>Summary</h3>
+                        </div>
+                        <div class="summary-content">
+                            <p ng-bind-html="profile.summary"></p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <!--Experince-->
+                    <div class="background-experience">
+                        <div class="experience-header">
+                            <h3>Experience</h3>
+                        </div>
+                        <div class="experience-content">
+                            <!--Current Experince-->
+                            <div class="experience-item-view" ng-repeat="exp in profile.currentExperience">
+                                <div class="experince-header">
+                                    <h1><a href="#">{{exp.position}}</a></h1>
+                                    <p><a href="#">{{exp.organization}}</a>
+                                    </p>
+                                    <p>{{exp.time}}</p>
+                                </div>
+                                <div class="logo-organization">
+                                    <img src="{{exp.logo}}">
+                                </div>
+                                <div class="experince-summary">
+                                    <p>{{exp.description}}</p>
+                                </div>
+                                <div class="treasury-container" ng-if="isHasValueInArray(exp.post)">
+                                    <div class="treasury-container-item left-float">
+                                        <div class="thumnail"></div>
+                                        <p class="title-item">{{exp.post[0].title}}</p>
+                                    </div>
+                                    <div class="treasury-container-item right-float">
+                                        <div class="thumnail1"></div>
+                                        <p class="title-item">{{exp.post[1].title}}</p>
+                                    </div>
+                                </div>
+                                <div class="treasury-container" ng-if="isHasValueInArray(exp.subPost)">
+                                    <div class="treasury-container-item-3col left-float">
+                                        <div class="thumnail2"></div>
+                                        <p class="title-item">{{exp.subPost[0].title}}</p>
+                                    </div>
+                                    <div class="treasury-container-item-3col left-float">
+                                        <div class="thumnail3"></div>
+                                        <p class="title-item">{{exp.subPost[1].title}}</p>
+                                    </div>
+                                    <div class="treasury-container-item-3col left-float">
+                                        <div class="thumnail4"></div>
+                                        <p class="title-item">{{exp.subPost[2].title}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Previuos Experince-->
+                            <div class="experience-item-view" ng-repeat="exp in profile.previuosExperience">
+                                <div class="experince-header">
+                                    <h1><a href="#">{{exp.position}}</a></h1>
+                                    <p><a href="#">{{exp.organization}}</a>
+                                    </p>
+                                    <p>{{exp.time}}</p>
+                                </div>
+                                <div class="logo-organization">
+                                    <img src="{{exp.logo}}">
+                                </div>
+                                <div class="experince-summary">
+                                    <p>{{exp.description}}</p>
+                                </div>
+                                <div class="recommention-count" ng-if="isHasValueInArray(exp.recommention)">
+                                    <p>► {{exp.recommention.length}} recommendation</p>
+                                </div>
+                                <div class="recommention" ng-repeat="recom in exp.recommention">
+                                    <div class="avatar left-float">
+                                        <img src="{{recom.avatar}}" width="40px" height="40px">
+                                    </div>
+                                    <div class="sumary-info left-float"><a class="connect" href="#">{{recom.name}}</a>
+                                        <p>{{recom.position}}</p>
+                                    </div>
+                                    <p class="comment">{{recom.comment}}</p>
+                                </div>
+                            </div>
+                            <div class="see-more"><a href="#"><span>SEE MORE</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <!--Project-->
+                    <div class="background-project">
+                        <div class="project-header">
+                            <h3>Project</h3>
+                        </div>
+                        <div class="project-content">
+                            <!--Current Experince-->
+                            <div class="project-item-view" ng-repeat="pr in profile.projects">
+                                <div class="project-header">
+                                    <h1><a>{{pr.projectName}}</a></h1>
+                                    <p>{{pr.time}}</p>
+                                </div>
+                                <div class="logo-organization">
+                                    <img src="{{pr.logo}}">
+                                </div>
+                                <div class="project-summary">
+                                    <p>{{pr.description}}</p>
+                                </div>
+                                <div class="team-member-count" ng-if="isHasValueInArray(pr.teamMember)">
+                                    <p>► {{pr.teamMember.length}} team members, including:</p>
+                                </div>
+                                <div class="team-member left-float" ng-repeat="member in pr.teamMember">
+                                    <div class="avatar left-float">
+                                        <img src="{{member.avatar}}" width="40px" height="40px">
+                                    </div>
+                                    <div class="sumary-info left-float"><a class="connect" href="#">{{member.name}}</a>
+                                        <p>{{member.position}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <hr/>
+                    <!--Skills-->
+                    <div id="background-skills">
+                        <div class="skills-header">
+                            <h3>Skills</h3>
+                        </div>
+                        <p class="skill-top-skill" ng-if="isHasValueInArray(profile.topSkills)">Top Skills</p>
+                        <div class="skill-content">
+                            <div class="skill-item" ng-repeat="skill in profile.topSkills">
+                                <button class="btn-primary btn-skill" type="button">{{skill.rate}}</button>
+                                <button class="btn-primary btn-skill-detail" type="button">{{skill.skillName}}</button>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+>>>>>>> 4ef8e90665825ad95d06d6fbfb39bf3c8b13306f
                         <p class="skill" ng-if="isHasValueInArray(profile.otherSkills)">{{profile.firstName}} also knows
                             about...</p>
                         <div class="skill-content">
@@ -384,7 +602,10 @@
                     </div>
                     <div class="clear"></div>
                     <hr/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4ef8e90665825ad95d06d6fbfb39bf3c8b13306f
                     <!--Education-->
                     <div id="background-educations">
                         <div class="educations-header">
@@ -406,6 +627,10 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+</div>
+>>>>>>> 4ef8e90665825ad95d06d6fbfb39bf3c8b13306f
 </body>
 
 </html>
