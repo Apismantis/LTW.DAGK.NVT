@@ -335,7 +335,7 @@ p {
     text-align: justify;
 }
 
-follow-supplemental-action p {
+.follow-supplemental-action p {
     margin-bottom: 0px !important;
 }
 
