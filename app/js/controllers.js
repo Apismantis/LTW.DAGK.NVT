@@ -6,8 +6,8 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
         $scope.firstName = $scope.profile.firstName;
         $scope.lastName = $scope.profile.lastName;
 
-        $scope.currentPosition = $scope.profile.currentExperience[0].position;
-        $scope.currentCompany = $scope.profile.currentExperience[0].organization;
+        $scope.headline = $scope.profile.currentExperience[0].position + " at " + $scope.profile.currentExperience[0].organization;
+        $scope.newHeadline = $scope.headline;
 
         $scope.country = $scope.profile.country;
         $scope.industry = $scope.profile.industry;
@@ -16,10 +16,16 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
     });
 
     $scope.isHasValueInArray = function (val) {
-        if (val.length > 0)
+        if (val > 0)
             return true;
-
         return false;
+    }
+
+    $scope.IsHasValue = function (val) {
+        if (val == null || val == "")
+            return false;
+
+        return true;
     }
 
     $scope.SaveNewName = function () {
@@ -27,9 +33,8 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
         $scope.profile.lastName = $scope.lastName;
     }
 
-    $scope.SaveCurrentExperience = function () {
-        $scope.profile.currentExperience[0].position = $scope.currentPosition;
-        $scope.profile.currentExperience[0].organization = $scope.currentCompany;
+    $scope.SaveHeadline = function () {
+        $scope.headline = $scope.newHeadline;
     }
 
     $scope.SaveNewLocation = function () {
@@ -39,6 +44,21 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
 
     $scope.SaveNewSummary = function () {
         $scope.profile.summary = $scope.newSummary;
+    }
+
+    $scope.NewExperience = {};
+    $scope.SaveNewExperience = function () {
+        if ($scope.NewExperience.organization == null || $scope.NewExperience.position == null || $scope.NewExperience.time == null) {
+            alert("Lost Information. Please refill again.");
+        }
+        else {
+            if ($scope.newURLLogoCompany == null)
+                $scope.NewExperience.logo = "img/logo-work-experience.png";
+
+            $scope.Temp = {};
+            angular.copy($scope.NewExperience, $scope.Temp);
+            $scope.profile.currentExperience.unshift($scope.Temp);
+        }
     }
 
     $scope.EditExperienceItem = {};
@@ -105,5 +125,13 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
 
     $scope.SaveEducation = function () {
         angular.copy($scope.EdiEducationItem, $scope.profile.education[$scope.indexEducation]);
+    }
+
+    $scope.setCurrentIndxObject = function ($index) {
+        $scope.indexObject = $index;
+    }
+
+    $scope.deleteObject = function (val1) {
+        val1.splice($scope.indexObject, 1);
     }
 });

@@ -246,7 +246,15 @@ sup {
     display: block;
 }
 
+#background-experience:hover .btn-img-add-20 {
+    display: block;
+}
+
 .profile-overview-content:hover .btn-img-edit-15 {
+    display: block;
+}
+
+.experience-item-view:hover .btn-img-delete-15 {
     display: block;
 }
 
@@ -294,11 +302,13 @@ table {
 }
 
 .profile-aux {
+    padding-top: 15px;
 }
 
 .btn-follow {
     border-radius: 3px 0 0 3px;
     font-weight: bold;
+    width: 100px;
 }
 
 .btn-dropdown {
@@ -306,11 +316,8 @@ table {
 }
 
 .follow-supplemental-action {
-    margin-top: -2px;
     padding-left: 10px;
-    max-width: 100px;
-    display: inline-block;
-    clear: none;
+    margin-top: -5px;
 }
 
 .connect {
@@ -570,7 +577,6 @@ h3 {
 }
 
 .experince-header {
-    float: left;
     padding-top: 10px;
 }
 
@@ -832,9 +838,7 @@ td a:hover {
     margin-top: -200px;
 }
 
-.experience-header {
-    float: left;
-}
+
 
 .experience-content {
     clear: both;
@@ -888,6 +892,17 @@ td a:hover {
     margin-left: 15px;
 }
 
+.btn-delete {
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.btn-add {
+    vertical-align: middle;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
 .modal-body label {
     padding-bottom: 5px;
     padding-top: 15px;
@@ -904,6 +919,7 @@ h4 {
 
 .modal-title {
     font-weight: bold;
+    font-size: 16px !important;
 }
 
 .sumaryExperience {
@@ -927,9 +943,39 @@ h4 {
     display: none;
 }
 
+.btn-img-add-20 {
+    background: url(../img/add_20.png) no-repeat;
+    background-position: center center;
+    height: 20px;
+    width: 20px;
+    display: none;
+}
+
+.btn-img-add-20:hover {
+    background: url(../img/add_20_hover.png) no-repeat;
+    background-position: center center;
+}
+
+.btn-img-add-15 {
+    background: url(../img/add_15.png) no-repeat;
+    background-position: center center;
+    height: 15px;
+    width: 15px;
+    display: none;
+}
+
+.btn-img-add-15:hover {
+    background: url(../img/add_15_hover.png) no-repeat;
+    background-position: center center;
+}
+
 .btn-img-edit-20:hover {
     background: url(../img/edit_hover_20.png) no-repeat;
     background-position: center center;
+}
+
+.btn-img-edit-20:visited {
+    border: 0px;
 }
 
 
@@ -941,9 +987,26 @@ h4 {
     display: none;
 }
 
+.btn-img-delete-15 {
+    background: url(../img/del_15.png) no-repeat;
+    background-position: center center;
+    height: 15px;
+    width: 15px;
+    display: none;
+}
+
+.btn-img-delete-15:hover {
+    background: url(../img/del_15_hover.png) no-repeat;
+    background-position: center center;
+}
+
 .btn-img-edit-15:hover {
     background: url(../img/edit_hover_15.png) no-repeat;
     background-position: center center;
+}
+
+.btn-img-edit-15:visited {
+    border: 0px;
 }
 
 #background-summary:hover .btn-img-edit-20 {
@@ -955,5 +1018,22 @@ h4 {
 }
 
 .btn-edit-15 {
+    padding-top: 6px !important;
+}
+
+.modal-dialog {
+    font-family: arial;
+}
+
+.modal-body {
+    font-size: 14px;
+}
+
+.img-logo {
+    max-height: 45px;
+    width: auto;
+}
+
+.btn-delete-15 {
     padding-top: 6px !important;
 }

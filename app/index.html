@@ -6,6 +6,8 @@
     <title>Tuan Nguyen | LinkedIn Profile</title>
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
+    <link href="css/bootstrap-form-helpers.min.css" rel="stylesheet">
+    <script src="js/bootstrap-formhelpers.min.js"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
@@ -17,6 +19,7 @@
     <script src="js/animations.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/services.js"></script>
+
 </head>
 
 <body ng-app="CVPage" ng-controller="CVPageCtrl">
@@ -30,17 +33,31 @@
             </div>
             <div class="profile-overview">
                 <div class="profile-overview-content">
-                    <div class="account-icon"><span><abbr title="Jeff Weiner is a 3rd degree connection"
-                                                          class="degree-icon ">3<sup>rd</sup></abbr></span>
-                        <a href="#" class="fluence-icon" title="Jeff is a LinkedIn Influencer"></a>
+                    <div class="account-icon"><span><abbr
+                            title="{{profile.firstName}} {{profile.lastName}} is a 3rd degree connection"
+                            class="degree-icon ">3<sup>rd</sup></abbr></span>
+                        <a href="#" class="fluence-icon" title="{{profile.firstName}} is a LinkedIn Influencer"></a>
                     </div>
                     <div class="basic-info">
                         <h1 class="left-float"><span>{{profile.firstName + " " + profile.lastName}}</span></h1>
-                        <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditNameModal">
+                        <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditName">
                             <div class="btn-img-edit-20"></div>
                         </a>
-                        <!--Edit Name Dialog-->
-                        <div class="modal fade" id="EditNameModal" role="dialog">
+                        <div class="clear"></div>
+                        <p class="title left-float" ng-model="headline">{{headline}}</p>
+                        <a class="left-float btn-edit headline" href="#" data-toggle="modal"
+                           data-target="#EditHeadline">
+                            <div class="btn-img-edit-20"></div>
+                        </a>
+                        <div class="clear"></div>
+                        <a href="#" class="left-float" title="Find other members in {{profile.country}}">{{profile.country}}</a>
+                        <a class="locality left-float" href="#" title="Find other members in this industry">{{profile.industry}}</a>
+                        <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditCountry">
+                            <div class="btn-img-edit-15"></div>
+                        </a>
+
+                        <!--Edit name dialog-->
+                        <div class="modal fade" id="EditName" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -49,62 +66,61 @@
                                     </div>
                                     <div class="modal-body">
                                         <label>FirstName:</label>
-                                        <input type="text" class="form-control" ng-model="firstName" />
+                                        <input type="text" class="form-control" ng-model="firstName"/>
                                         <label>LastName:</label>
-                                        <input type="text" class="form-control" ng-model="lastName" />
+                                        <input type="text" class="form-control" ng-model="lastName"/>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveNewName()">Save</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                ng-click="SaveNewName()">Save
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="clear"></div>
-                        <p class="title left-float">{{profile.currentExperience[0].position}} at {{profile.currentExperience[0].organization}}</p>
-                        <a class="left-float btn-edit headline" href="#" data-toggle="modal" data-target="#EditCurrentExperienceModal">
-                            <div class="btn-img-edit-20"></div>
-                        </a>
-                        <!--Edit Current Experience Dialog-->
-                        <div class="modal fade" id="EditCurrentExperienceModal" role="dialog">
+
+                        <!--Edit headline dialog-->
+                        <div class="modal fade" id="EditHeadline" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Update Current Exerience</h4>
+                                        <h4 class="modal-title">Your professional headline</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <label>Current Position:</label>
-                                        <input type="text" class="form-control" ng-model="currentPosition" />
-                                        <label>Current Company:</label>
-                                        <input type="text" class="form-control" ng-model="currentCompany" />
+                                        <label>Your professional headline</label>
+                                        <input type="text" class="form-control" ng-model="newHeadline"/>
+                                        <p>Example: Experienced Transportation Executive, Web Designer and Information
+                                            Architect, Visionary Entrepreneur and Investor</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveCurrentExperience()">Save</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                ng-click="SaveHeadline()">Save
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="clear"></div> <a href="#" class="left-float" title="Find other members in San Francisco Bay Area">{{profile.country}}</a>
-                        <a class="locality left-float" href="#" title="Find other members in this industry">{{profile.industry}}</a>
-                        <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditLocalModal">
-                            <div class="btn-img-edit-15"></div>
-                        </a>
-                        <!--Edit country Dialog-->
-                        <div class="modal fade" id="EditLocalModal" role="dialog">
+
+                        <!--Edit country dialog-->
+                        <div class="modal fade" id="EditCountry" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Update Your Location</h4>
+                                        <h4 class="modal-title">Update Your Country</h4>
                                     </div>
                                     <div class="modal-body">
                                         <label>Country:</label>
-                                        <input type="text" class="form-control" ng-model="country" />
+                                        <!--<select class="form-control bfh-countries" data-country="US"></select>-->
+                                        <input type="text" class="form-control" ng-model="country"/>
                                         <label>Industry:</label>
-                                        <input type="text" class="form-control" ng-model="industry" />
+                                        <input type="text" class="form-control" ng-model="industry"/>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveNewLocation()">Save</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                ng-click="SaveNewLocation()">Save
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -152,9 +168,10 @@
                 </div>
                 <div class="profile-aux">
                     <div class="follower-count right-float"><strong>{{profile.followers}}</strong>followers</div>
-                    <div class="group-btn">
+                    <div class="group-btn left-float">
                         <button class="btn-primary btn-follow" type="button">Follow</button>
-                        <button class="btn-primary dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown"> <span class="caret"></span>
+                        <button class="btn-primary dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown">
+                            <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="#">View recent activity</a>
@@ -171,8 +188,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="follow-supplemental-action">
-                        <p class="action-description">Know {{profile.firstName}}?</p> <a class="connect" href="#">Connect</a>
+                    <div class="follow-supplemental-action left-float">
+                        <p class="action-description">Know {{profile.firstName}}?</p>
+                        <a class="connect" href="#">Connect</a>
                     </div>
                 </div>
             </div>
@@ -211,7 +229,9 @@
                                             <textarea class="form-control" rows="15" ng-model="newSummary"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveNewSummary()">Save</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="SaveNewSummary()">Save
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -222,69 +242,69 @@
                             <p ng-bind-html="profile.summary"></p>
                         </div>
                     </div>
+                    <div class="clear"></div>
                     <hr/>
                     <!--Experince-->
                     <div id="background-experience">
                         <div class="experience-header">
-                            <h3>Experience</h3>
+                            <h3 class="left-float">Experience</h3>
+                            <a class="right-float btn-add" href="#" data-toggle="modal" data-target="#AddExperience">
+                                <div class="btn-img-add-20"></div>
+                            </a>
                         </div>
                         <div class="experience-content">
                             <!--Current Experince-->
                             <div class="experience-item-view" ng-repeat="exp in profile.currentExperience">
-                                <div class="experince-header">
+                                <div class="experince-header left-float">
                                     <h1 class="left-float"><a href="#">{{exp.position}}</a></h1>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
+                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                       data-target="#DeleteExpObject" ng-click="setCurrentIndxObject($index)">
+                                        <div class="btn-img-delete-15"></div>
+                                    </a>
                                     <div class="clear"></div>
+
                                     <p class="left-float"><a href="#">{{exp.organization}}</a>
                                     </p>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
+                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                       data-target="#DeleteExpObject" ng-click="setCurrentIndxObject($index)">
+                                        <div class="btn-img-delete-15"></div>
+                                    </a>
+
                                     <div class="clear"></div>
                                     <p class="left-float">{{exp.time}}</p>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
                                         <div class="btn-img-edit-15"></div>
+                                    </a>
+                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                       data-target="#DeleteExpObject" ng-click="setCurrentIndxObject($index)">
+                                        <div class="btn-img-delete-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                 </div>
-                                <div class="logo-organization">
-                                    <img src="{{exp.logo}}">
-                                </div>
-                                <div class="experince-summary">
-                                    <p class="left-float">{{exp.description}}</p>
-                                    <a class="right-float btn-edit summaryExperience" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
-                                        <div class="btn-img-edit-15"></div>
-                                    </a>
-                                    <div class="clear"></div>
-                                </div>
-                                <!--Edit Current Experience Dialog-->
-                                <div class="modal fade" id="EditExperience" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Update Your Experience</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <label>Company Name</label>
-                                                <input type="text" class="form-control" ng-model="EditExperienceItem.organization" />
-                                                <label>Title</label>
-                                                <input type="text" class="form-control" ng-model="EditExperienceItem.position" />
-                                                <label>Time</label>
-                                                <input type="text" class="form-control" ng-model="EditExperienceItem.time" />
-                                                <label>Description</label>
-                                                <textarea rows="5" class="form-control" ng-model="EditExperienceItem.description"></textarea>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveExperience()">Save</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="logo-organization right-float">
+                                    <img class="img-logo" ng-src="{{exp.logo}}" onerror="this.style.display='none'">
                                 </div>
                                 <div class="clear"></div>
-                                <div class="treasury-container" ng-if="isHasValueInArray(exp.post)">
+                                <div class="experince-summary">
+                                    <p class="left-float">{{exp.description}}</p>
+                                    <a class="right-float btn-edit summaryExperience" href="#" data-toggle="modal"
+                                       data-target="#EditExperience" ng-click="GetCurrentExperience($index)"
+                                       ng-if="IsHasValue(exp.description)">
+                                        <div class="btn-img-edit-15"></div>
+                                    </a>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="treasury-container" ng-if="isHasValueInArray(exp.post.length)">
                                     <div class="treasury-container-item left-float">
                                         <div class="thumnail"></div>
                                         <p class="title-item">{{exp.post[0].title}}</p>
@@ -294,7 +314,7 @@
                                         <p class="title-item">{{exp.post[1].title}}</p>
                                     </div>
                                 </div>
-                                <div class="treasury-container" ng-if="isHasValueInArray(exp.subPost)">
+                                <div class="treasury-container" ng-if="isHasValueInArray(exp.subPost.length)">
                                     <div class="treasury-container-item-3col left-float">
                                         <div class="thumnail2"></div>
                                         <p class="title-item">{{exp.subPost[0].title}}</p>
@@ -308,63 +328,9 @@
                                         <p class="title-item">{{exp.subPost[2].title}}</p>
                                     </div>
                                 </div>
-                            </div>
-                            <!--Previuos Experince-->
-                            <div class="experience-item-view" ng-repeat="exp in profile.previuosExperience">
-                                <div class="experince-header">
-                                    <h1 class="left-float"><a href="#">{{exp.position}}</a></h1>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
-                                        <div class="btn-img-edit-15"></div>
-                                    </a>
-                                    <div class="clear"></div>
-                                    <p class="left-float"><a href="#">{{exp.organization}}</a>
-                                    </p>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
-                                        <div class="btn-img-edit-15"></div>
-                                    </a>
-                                    <div class="clear"></div>
-                                    <p class="left-float">{{exp.time}}</p>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
-                                        <div class="btn-img-edit-15"></div>
-                                    </a>
-                                    <div class="clear"></div>
-                                </div>
-                                <div class="logo-organization">
-                                    <img src="{{exp.logo}}">
-                                </div>
-                                <div class="experince-summary">
-                                    <p class="left-float">{{exp.description}}</p>
-                                    <a class="right-float btn-edit summaryExperience" href="#" data-toggle="modal" data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
-                                        <div class="btn-img-edit-15"></div>
-                                    </a>
-                                    <div class="clear"></div>
-                                </div>
-                                <!--Edit Previous Experience Dialog-->
-                                <div class="modal fade" id="EditPreviuosExperience" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Update Your Previous Experience</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <label>Company Name</label>
-                                                <input type="text" class="form-control" ng-model="EditPreviousExperienceItem.organization" />
-                                                <label>Title</label>
-                                                <input type="text" class="form-control" ng-model="EditPreviousExperienceItem.position" />
-                                                <label>Time</label>
-                                                <input type="text" class="form-control" ng-model="EditPreviousExperienceItem.time" />
-                                                <label>Description</label>
-                                                <textarea rows="5" class="form-control" ng-model="EditPreviousExperienceItem.description"></textarea>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SavePreviousExperience()">Save</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="clear"></div>
-                                <div class="recommention-count" ng-if="isHasValueInArray(exp.recommention)">
+                                <div class="recommention-count" ng-if="isHasValueInArray(exp.recommention.length)">
                                     <p>► {{exp.recommention.length}} recommendation</p>
                                 </div>
                                 <div class="recommention" ng-repeat="recom in exp.recommention">
@@ -376,7 +342,228 @@
                                     </div>
                                     <p class="comment">{{recom.comment}}</p>
                                 </div>
+
+                                <!--Edit Experience Dialog-->
+                                <div class="modal fade" id="EditExperience" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Update Your Experience</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>Company Name</label>
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditExperienceItem.organization"/>
+                                                <label>Title</label>
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditExperienceItem.position"/>
+                                                <label>Time</label>
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditExperienceItem.time"/>
+                                                <label>Description</label>
+                                                <textarea rows="5" class="form-control"
+                                                          ng-model="EditExperienceItem.description"></textarea>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="SaveExperience()">Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Add Experience Dialog-->
+                                <div class="modal fade" id="AddExperience" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Add New Experience</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>Company Name</label>
+                                                <input type="text" class="form-control"
+                                                       ng-model="NewExperience.organization"/>
+                                                <label>Title</label>
+                                                <input type="text" class="form-control"
+                                                       ng-model="NewExperience.position"/>
+                                                <label>Time</label>
+                                                <input type="text" class="form-control" ng-model="NewExperience.time"/>
+                                                <label>Description</label>
+                                                <textarea rows="5" class="form-control"
+                                                          ng-model="NewExperience.description"></textarea>
+                                                <label>URL Company Logo</label>
+                                                <input type="text" class="form-control" ng-model="NewExperience.logo"/>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="SaveNewExperience()">Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Delete Object Dialog-->
+                                <div class="modal fade" id="DeleteExpObject" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Delete</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>Are you sure delete?</label>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="deleteObject(profile.currentExperience)">Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <!--Previuos Experince-->
+                            <!--<div class="experience-item-view" ng-repeat="exp in profile.previuosExperience">
+                                <div class="experince-header left-float">
+                                    <h1 class="left-float"><a href="#">{{exp.position}}</a></h1>
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
+                                        <div class="btn-img-edit-15"></div>
+                                    </a>
+                                    <div class="clear"></div>
+                                    <p class="left-float"><a href="#">{{exp.organization}}</a>
+                                    </p>
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
+                                        <div class="btn-img-edit-15"></div>
+                                    </a>
+                                    <div class="clear"></div>
+                                    <p class="left-float">{{exp.time}}</p>
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)">
+                                        <div class="btn-img-edit-15"></div>
+                                    </a>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="logo-organization right-float">
+                                    <img class="img-logo" src="{{exp.logo}}" onerror="this.style.display='none'">
+                                </div>
+                                <div class="experince-summary">
+                                    <p class="left-float">{{exp.description}}</p>
+                                    <a class="right-float btn-edit summaryExperience" href="#" data-toggle="modal"
+                                       data-target="#EditPreviuosExperience" ng-click="GetPreviousExperience($index)"
+                                       ng-if="IsHasValue(exp.description)">
+                                        <div class="btn-img-edit-15"></div>
+                                    </a>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="recommention-count" ng-if="isHasValueInArray(exp.recommention.length)">
+                                    <p>► {{exp.recommention.length}} recommendation</p>
+                                </div>
+                                <div class="recommention" ng-repeat="recom in exp.recommention">
+                                    <div class="avatar left-float">
+                                        <img src="{{recom.avatar}}" width="40px" height="40px">
+                                    </div>
+                                    <div class="sumary-info left-float"><a class="connect" href="#">{{recom.name}}</a>
+                                        <p>{{recom.position}}</p>
+                                    </div>
+                                    <p class="comment">{{recom.comment}}</p>
+                                </div>
+
+                                &lt;!&ndash;Add Experience Dialog&ndash;&gt;
+                                <div class="modal fade" id="AddPreExperience" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Add New Experience</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>Company Name</label>
+                                                <input type="text" class="form-control"
+                                                       ng-model="NewExperience.organization"/>
+                                                <label>Title</label>
+                                                <input type="text" class="form-control"
+                                                       ng-model="NewExperience.position"/>
+                                                <label>Time</label>
+                                                <input type="text" class="form-control" ng-model="NewExperience.time"/>
+                                                <label>Description</label>
+                                                <textarea rows="5" class="form-control"
+                                                          ng-model="NewExperience.description"></textarea>
+                                                <label>URL Company Logo</label>
+                                                <input type="text" class="form-control" ng-model="NewExperience.logo"/>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="SaveNewExperience()">Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                &lt;!&ndash;Edit Previous Experience Dialog&ndash;&gt;
+                                <div class="modal fade" id="EditPreviuosExperience" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Update Your Previous Experience</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>Company Name</label>
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditPreviousExperienceItem.organization"/>
+                                                <label>Title</label>
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditPreviousExperienceItem.position"/>
+                                                <label>Time</label>
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditPreviousExperienceItem.time"/>
+                                                <label>Description</label>
+                                                <textarea rows="5" class="form-control"
+                                                          ng-model="EditPreviousExperienceItem.description"></textarea>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="SavePreviousExperience()">Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                &lt;!&ndash;Delete Object Dialog&ndash;&gt;
+                                <div class="modal fade" id="DeletePreExpObject" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Delete</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>Are you sure delete?</label>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="deleteObject(profile.currentExperience)">Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
                             <div class="see-more"><a href="#"><span>SEE MORE</span></a>
                             </div>
                         </div>
@@ -392,12 +579,14 @@
                             <div class="project-item-view" ng-repeat="pr in profile.projects">
                                 <div class="project-header">
                                     <h1 class="left-float"><a>{{pr.projectName}}</a></h1>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditProject" ng-click="GetProject($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditProject" ng-click="GetProject($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                     <p class="left-float">{{pr.time}}</p>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditProject" ng-click="GetProject($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditProject" ng-click="GetProject($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
@@ -407,7 +596,9 @@
                                 </div>
                                 <div class="project-summary">
                                     <p class="left-float">{{pr.description}}</p>
-                                    <a class="right-float btn-edit sumaryExperience" href="#" data-toggle="modal" data-target="#EditProject" ng-click="GetProject($index)">
+                                    <a class="right-float btn-edit sumaryExperience" href="#" data-toggle="modal"
+                                       data-target="#EditProject" ng-click="GetProject($index)"
+                                       ng-if="IsHasValue(pr.description)">
                                         <div class="btn-img-edit-15 btn-edit-description"></div>
                                     </a>
                                     <div class="clear"></div>
@@ -417,25 +608,31 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
                                                 <h4 class="modal-title">Update Your Project</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <label>Project Name</label>
-                                                <input type="text" class="form-control" ng-model="EditProjectItem.projectName" />
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditProjectItem.projectName"/>
                                                 <label>Time</label>
-                                                <input type="text" class="form-control" ng-model="EditProjectItem.time" />
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditProjectItem.time"/>
                                                 <label>Description</label>
-                                                <textarea rows="5" class="form-control" ng-model="EditProjectItem.description"></textarea>
+                                                <textarea rows="5" class="form-control"
+                                                          ng-model="EditProjectItem.description"></textarea>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveProject()">Save</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="SaveProject()">Save
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="clear"></div>
-                                <div class="team-member-count" ng-if="isHasValueInArray(pr.teamMember)">
+                                <div class="team-member-count" ng-if="isHasValueInArray(pr.teamMember.length)">
                                     <p>► {{pr.teamMember.length}} team members, including:</p>
                                 </div>
                                 <div class="team-member left-float" ng-repeat="member in pr.teamMember">
@@ -456,12 +653,13 @@
                         <div class="skills-header">
                             <h3>Skills</h3>
                         </div>
-                        <p class="skill-top-skill" ng-if="isHasValueInArray(profile.topSkills)">Top Skills</p>
+                        <p class="skill-top-skill" ng-if="isHasValueInArray(profile.topSkills.length)">Top Skills</p>
                         <div class="skill-content">
                             <div class="skill-item" ng-repeat="skill in profile.topSkills">
                                 <button class="btn-primary btn-skill" type="button">{{skill.rate}}</button>
                                 <button class="btn-primary btn-skill-detail" type="button">{{skill.skillName}}</button>
-                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditTopSkill" ng-click="GetTopSkill($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                   data-target="#EditTopSkill" ng-click="GetTopSkill($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
                                 <div class="clear"></div>
@@ -470,17 +668,23 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
                                                 <h4 class="modal-title">Update Your Top Skill</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <label>Skill Name</label>
-                                                <input type="text" class="form-control" ng-model="EditTopSkillItem.skillName" />
-                                                <label>Rate (If rate is greater than 99, Rate will be scaled to 99+)</label>
-                                                <input type="number" class="form-control" ng-model="EditTopSkillItem.rate" />
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditTopSkillItem.skillName"/>
+                                                <label>Rate (If rate is greater than 99, Rate will be scaled to
+                                                    99+)</label>
+                                                <input type="number" class="form-control"
+                                                       ng-model="EditTopSkillItem.rate"/>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveTopSkill()">Save</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="SaveTopSkill()">Save
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -489,12 +693,14 @@
                             </div>
                         </div>
                         <div class="clear"></div>
-                        <p class="skill" ng-if="isHasValueInArray(profile.otherSkills)">{{profile.firstName}} also knows about...</p>
+                        <p class="skill" ng-if="isHasValueInArray(profile.otherSkills.length)">{{profile.firstName}}
+                            also knows about...</p>
                         <div class="skill-content">
                             <div class="skill-item-more" ng-repeat="skill in profile.otherSkills">
                                 <button class="btn-primary btn-skill" type="button">{{skill.rate}}</button>
                                 <button class="btn-primary btn-skill-detail" type="button">{{skill.skillName}}</button>
-                                <a class="left-float btn-edit other-skill btn-edit-15" href="#" data-toggle="modal" data-target="#EditOtherSkill" ng-click="GetOtherSkill($index)">
+                                <a class="left-float btn-edit other-skill btn-edit-15" href="#" data-toggle="modal"
+                                   data-target="#EditOtherSkill" ng-click="GetOtherSkill($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
                             </div>
@@ -508,12 +714,16 @@
                                         </div>
                                         <div class="modal-body">
                                             <label>Skill Name</label>
-                                            <input type="text" class="form-control" ng-model="EditOtherSkillItem.skillName" />
+                                            <input type="text" class="form-control"
+                                                   ng-model="EditOtherSkillItem.skillName"/>
                                             <label>Rate (If rate is greater than 99, Rate will be scaled to 99+)</label>
-                                            <input type="number" class="form-control" ng-model="EditOtherSkillItem.rate" />
+                                            <input type="number" class="form-control"
+                                                   ng-model="EditOtherSkillItem.rate"/>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveOtherSkill()">Save</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="SaveOtherSkill()">Save
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -531,18 +741,21 @@
                         <div class="educations-content" ng-repeat="school in profile.education">
                             <div class="educations-header left-float">
                                 <h1 class="left-float"><a href="#">{{school.schoolName}}</a></h1>
-                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                   data-target="#EditEducation" ng-click="GetEducation($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
                                 <div class="clear"></div>
                                 <p class="left-float"><a href="#">{{school.grade}}</a>
                                 </p>
-                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                   data-target="#EditEducation" ng-click="GetEducation($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
                                 <div class="clear"></div>
                                 <p class="left-float">{{school.time}}</p>
-                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                   data-target="#EditEducation" ng-click="GetEducation($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
                                 <div class="clear"></div>
@@ -560,14 +773,17 @@
                                         </div>
                                         <div class="modal-body">
                                             <label>School Name</label>
-                                            <input type="text" class="form-control" ng-model="EdiEducationItem.schoolName" />
+                                            <input type="text" class="form-control"
+                                                   ng-model="EdiEducationItem.schoolName"/>
                                             <label>Grade</label>
-                                            <input type="text" class="form-control" ng-model="EdiEducationItem.grade" />
+                                            <input type="text" class="form-control" ng-model="EdiEducationItem.grade"/>
                                             <label>Time</label>
-                                            <input type="text" class="form-control" ng-model="EdiEducationItem.time" />
+                                            <input type="text" class="form-control" ng-model="EdiEducationItem.time"/>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveEducation()">Save</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="SaveEducation()">Save
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
