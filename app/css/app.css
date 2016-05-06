@@ -250,11 +250,47 @@ sup {
     display: block;
 }
 
+#background-educations:hover .btn-img-add-20 {
+    display: block;
+}
+
+#background-skills:hover .btn-img-add-20 {
+    display: block;
+}
+
+#background-project:hover .btn-img-add-20 {
+    display: block;
+}
+
 .profile-overview-content:hover .btn-img-edit-15 {
     display: block;
 }
 
-.experience-item-view:hover .btn-img-delete-15 {
+.experience-content:hover .btn-img-edit-15 {
+    display: block;
+}
+
+.educations-content:hover .btn-img-edit-15 {
+    display: block;
+}
+
+.project-content:hover .btn-img-edit-15 {
+    display: block;
+}
+
+.educations-content:hover .btn-img-delete-15 {
+    display: block;
+}
+
+.experience-content:hover .btn-img-delete-15 {
+    display: block;
+}
+
+.skill-content:hover .btn-img-delete-15 {
+    display: block;
+}
+
+.project-content:hover .btn-img-delete-15 {
     display: block;
 }
 
@@ -580,9 +616,7 @@ h3 {
     padding-top: 10px;
 }
 
-.project-header {
-    float: left;
-}
+
 
 .logo-organization {
     float: right;
@@ -704,13 +738,10 @@ h1 a:hover {
 }
 
 .recommention {
-    margin-left: 15px;
-    margin-right: 15px;
     margin-top: 10px;
 }
 
 .team-member {
-    margin-left: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 48%;
@@ -879,9 +910,7 @@ td a:hover {
     padding-top: 15px;
 }
 
-.experience-item-view:hover .btn-img-edit-15 {
-    display: block;
-}
+
 
 .experience-item-view:first-child {
     padding-top: 0px;
@@ -1036,4 +1065,17 @@ h4 {
 
 .btn-delete-15 {
     padding-top: 6px !important;
+}
+
+.team-member .btn-delete-15 {
+    padding-top: 0px !important;
+}
+
+.sumary-info .btn-delete-15 {
+    padding-top: 0px !important;
+}
+
+#background-educations {
+    min-height: 20px;
+    width: 100%;
 }

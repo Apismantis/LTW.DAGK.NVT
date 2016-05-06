@@ -133,7 +133,7 @@
     {
       "projectName": "ORT",
       "time": "January 2014 – September 2014",
-      "description": "This project is to design and develop marketing management system using SharePoint for a German companies to provide a complete solution for marketing for many customers like Vodafone, Lufthansa, Monster, … ",
+      "description": "This project is to design and develop marketing management system using SharePoint for a German companies to provide a complete solution for marketing for many customers like Vodafone, Lufthansa, Monster, …",
       "teamMember": [
         {
           "name": "Huong Doan",
@@ -148,30 +148,30 @@
       ]
     }
   ],
-  "topSkills": [
+  "skills": [
     {
       "skillName": "LeaderShip",
-      "rate": "99+"
+      "rate": "120"
     },
     {
       "skillName": "Business Strategy",
-      "rate": "99+"
+      "rate": "200"
     },
     {
       "skillName": "Strategy",
-      "rate": "99+"
+      "rate": "100"
     },
     {
       "skillName": "Entrepreneurship",
-      "rate": "99+"
+      "rate": "99"
     },
     {
       "skillName": "Product Marketing",
-      "rate": "99+"
+      "rate": "300"
     },
     {
       "skillName": "Strategic Planning",
-      "rate": "99+"
+      "rate": "100"
     },
     {
       "skillName": "Executive Management",
@@ -180,32 +180,30 @@
     {
       "skillName": "Product Development",
       "rate": "87"
-    }
-  ],
-  "otherSkills": [
+    },
     {
       "skillName": "LeaderShip",
-      "rate": "99+"
+      "rate": "90"
     },
     {
       "skillName": "Business Strategy",
-      "rate": "99+"
+      "rate": "65"
     },
     {
       "skillName": "Strategy",
-      "rate": "99+"
+      "rate": "35"
     },
     {
       "skillName": "Entrepreneurship",
-      "rate": "99+"
+      "rate": "72"
     },
     {
       "skillName": "Product Marketing",
-      "rate": "99+"
+      "rate": "77"
     },
     {
       "skillName": "Strategic Planning",
-      "rate": "99+"
+      "rate": "10"
     },
     {
       "skillName": "Executive Management",
@@ -213,31 +211,31 @@
     },
     {
       "skillName": "LeaderShip",
-      "rate": "99+"
+      "rate": "50"
     },
     {
       "skillName": "Business Strategy",
-      "rate": "99+"
+      "rate": "65"
     },
     {
       "skillName": "Strategy",
-      "rate": "99+"
+      "rate": "62"
     },
     {
       "skillName": "Entrepreneurship",
-      "rate": "99+"
+      "rate": "61"
     },
     {
       "skillName": "Product Marketing",
-      "rate": "99+"
+      "rate": "42"
     },
     {
       "skillName": "Strategic Planning",
-      "rate": "99+"
+      "rate": "98"
     },
     {
       "skillName": "Executive Management",
-      "rate": "96"
+      "rate": "88"
     },
     {
       "skillName": "Product Development",
@@ -250,6 +248,12 @@
       "grade": "Bachelor of Science, Information Technology",
       "time": "2013 - July, 2017",
       "logo": "img/tuannguyen/school.png"
+    },
+    {
+      "schoolName": "Tan Ha HighShool",
+      "grade": "Good Diploma",
+      "time": "September, 2010 - July, 2013",
+      "logo": "img/tuannguyen/thpt-tan-ha.jpg"
     }
   ]
 }

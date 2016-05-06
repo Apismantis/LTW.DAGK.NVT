@@ -1,6 +1,7 @@
 var CVApp = angular.module('CVPage', ['ngSanitize']);
 
 CVApp.controller('CVPageCtrl', function ($scope, $http) {
+
     $http.get('profile/tuan-nguyen.json').success(function (data) {
         $scope.profile = data;
         $scope.firstName = $scope.profile.firstName;
@@ -13,6 +14,15 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
         $scope.industry = $scope.profile.industry;
 
         $scope.newSummary = $scope.profile.summary;
+
+        $scope.profile.skills.sort(function (a, b) {
+            return parseInt(b.rate) - parseInt(a.rate);
+        });
+
+        for (var i = 0; i < $scope.profile.skills.length; i++) {
+            if ($scope.profile.skills[i].rate >= 100)
+                $scope.profile.skills[i].rate = "99+";
+        }
     });
 
     $scope.isHasValueInArray = function (val) {
@@ -26,6 +36,18 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
             return false;
 
         return true;
+    }
+    
+    $scope.IsEndElementCanShow = function ($index) {
+        return $index == 2;
+    }
+
+    $scope.IsPreviuosElement = function ($index) {
+        return $index < 2;
+    }
+
+    $scope.IsNextElement = function ($index) {
+        return $index >= 3;
     }
 
     $scope.SaveNewName = function () {
@@ -49,7 +71,7 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
     $scope.NewExperience = {};
     $scope.SaveNewExperience = function () {
         if ($scope.NewExperience.organization == null || $scope.NewExperience.position == null || $scope.NewExperience.time == null) {
-            alert("Lost Information. Please refill again.");
+            alert("Lost Information. Please try again.");
         }
         else {
             if ($scope.newURLLogoCompany == null)
@@ -59,6 +81,49 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
             angular.copy($scope.NewExperience, $scope.Temp);
             $scope.profile.currentExperience.unshift($scope.Temp);
         }
+    }
+
+    $scope.NewProject = {};
+    $scope.SaveNewProject = function () {
+        if ($scope.NewProject.projectName == null || $scope.NewProject.time == null) {
+            alert("Lost Information. Please try again.");
+        }
+        else {
+            $scope.Temp = {};
+            angular.copy($scope.NewProject, $scope.Temp);
+            $scope.profile.projects.unshift($scope.Temp);
+        }
+    }
+
+    $scope.NewEducation = {};
+    $scope.SaveNewEducation = function () {
+        if ($scope.NewEducation.schoolName == null || $scope.NewEducation.time == null || $scope.NewEducation.grade == null) {
+            alert("Lost Information. Please try again.");
+        }
+        else {
+            if ($scope.NewEducation.log == null)
+                $scope.NewEducation.logo = "img/high-school.png";
+
+            $scope.Temp = {};
+            angular.copy($scope.NewEducation, $scope.Temp);
+            $scope.profile.education.unshift($scope.Temp);
+        }
+    }
+
+    $scope.IsTopSkill = function ($index) {
+        if ($index < 10)
+            return true;
+        return false;
+    }
+
+    $scope.IsOtherSkill = function ($index) {
+        if ($index >= 10)
+            return true;
+        return false;
+    }
+
+    $scope.IsHasOtherSkill = function (val) {
+        return val > 10;
     }
 
     $scope.EditExperienceItem = {};
@@ -71,16 +136,6 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
         angular.copy($scope.EditExperienceItem, $scope.profile.currentExperience[$scope.indexCurrentExp]);
     }
 
-    $scope.EditPreviousExperienceItem = {};
-    $scope.GetPreviousExperience = function ($index) {
-        $scope.indexPreExp = $index;
-        angular.copy($scope.profile.previuosExperience[$scope.indexPreExp], $scope.EditPreviousExperienceItem);
-    }
-
-    $scope.SavePreviousExperience = function () {
-        angular.copy($scope.EditPreviousExperienceItem, $scope.profile.previuosExperience[$scope.indexPreExp]);
-    }
-
     $scope.EditProjectItem = {};
     $scope.GetProject = function ($index) {
         $scope.indexProject = $index;
@@ -91,30 +146,21 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
         angular.copy($scope.EditProjectItem, $scope.profile.projects[$scope.indexProject]);
     }
 
-    $scope.EditTopSkillItem = {};
-    $scope.GetTopSkill = function ($index) {
-        $scope.indexTopSkill = $index;
-        angular.copy($scope.profile.topSkills[$scope.indexTopSkill], $scope.EditTopSkillItem);
-        $scope.EditTopSkillItem.rate = 90;
-    }
+    $scope.NewSkill = {};
+    $scope.SaveNewSkill = function () {
+        $scope.NewSkill.rate = "0";
 
-    $scope.SaveTopSkill = function () {
-        if ($scope.EditTopSkillItem.rate >= 100)
-            $scope.EditTopSkillItem.rate = "99+";
-        angular.copy($scope.EditTopSkillItem, $scope.profile.topSkills[$scope.indexTopSkill]);
-    }
-
-    $scope.EditOtherSkillItem = {};
-    $scope.GetOtherSkill = function ($index) {
-        $scope.indexOtherSkill = $index;
-        angular.copy($scope.profile.otherSkills[$scope.indexOtherSkill], $scope.EditOtherSkillItem);
-        $scope.EditOtherSkillItem.rate = 90;
-    }
-
-    $scope.SaveOtherSkill = function () {
-        if ($scope.EditOtherSkillItem.rate >= 100)
-            $scope.EditOtherSkillItem.rate = "99+";
-        angular.copy($scope.EditOtherSkillItem, $scope.profile.otherSkills[$scope.indexOtherSkill]);
+        if ($scope.NewSkill.skillName == null) {
+            alert("Lost Information. Please try again.");
+        }
+        else {
+            $scope.Temp = {};
+            angular.copy($scope.NewSkill, $scope.Temp);
+            $scope.profile.skills.unshift($scope.Temp);
+            $scope.profile.skills.sort(function (a, b) {
+                return parseInt(b.rate) - parseInt(a.rate);
+            });
+        }
     }
 
     $scope.EdiEducationItem = {};
@@ -131,7 +177,22 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
         $scope.indexObject = $index;
     }
 
+    $scope.setCurrentChildIndxObject = function (parentObj, object, $index) {
+        $scope.indexObject = $index;
+        $scope.indexParentObject = parentObj.indexOf(object);
+    }
+
+    $scope.deleteChildObject = function (va) {
+        alert("Parent index: " + $scope.indexParentObject + " - Delete index: " + $scope.indexObject);
+        if (va[$scope.indexParentObject].recommention != null)
+            va[$scope.indexParentObject].recommention.splice($scope.indexObject, 1);
+
+        else if (va[$scope.indexParentObject].teamMember != null)
+            va[$scope.indexParentObject].teamMember.splice($scope.indexObject, 1);
+    }
+
     $scope.deleteObject = function (val1) {
+        alert($scope.indexObject + " " + val1);
         val1.splice($scope.indexObject, 1);
     }
 });
