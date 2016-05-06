@@ -37,7 +37,7 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
 
         return true;
     }
-    
+
     $scope.IsEndElementCanShow = function ($index) {
         return $index == 2;
     }
@@ -192,7 +192,6 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
     }
 
     $scope.deleteObject = function (val1) {
-        alert($scope.indexObject + " " + val1);
         val1.splice($scope.indexObject, 1);
     }
 });
