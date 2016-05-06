@@ -183,7 +183,6 @@ CVApp.controller('CVPageCtrl', function ($scope, $http) {
     }
 
     $scope.deleteChildObject = function (va) {
-        alert("Parent index: " + $scope.indexParentObject + " - Delete index: " + $scope.indexObject);
         if (va[$scope.indexParentObject].recommention != null)
             va[$scope.indexParentObject].recommention.splice($scope.indexObject, 1);
 
