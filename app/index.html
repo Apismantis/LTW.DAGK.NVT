@@ -1,19 +1,17 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <!--[if lt IE 7]-->
+<html lang="en" class="no-js lt-ie9 lt-ie8">        <!--[if IE 7]-->
+<html lang="en" class="no-js lt-ie9">               <!--[if IE 8]-->
+<html lang="en" class="no-js">                      <!--[if gt IE 8]-->
 
 <head>
     <meta charset="utf-8">
     <title>Tuan Nguyen | LinkedIn Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/flatly/bootstrap.min.css">
-    <link rel="stylesheet" href="css/app.css">
-
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="js/controllers.js"></script>
+    <link rel="stylesheet" href="app.css">
 </head>
-
 <body ng-app="CVPage" ng-controller="CVPageCtrl">
 <div class="view-container">
     <div class="top-background"></div>
@@ -21,7 +19,8 @@
         <!--Profile card-->
         <div class="profile-card">
             <div class="profile-picture left-float">
-                <img src="{{profile.avatar}}" alt="{{profile.firstName}} {{profile.lastName}}" height="240" width="240">
+                <img ng-src="{{profile.avatar}}" alt="{{profile.firstName}} {{profile.lastName}}" height="240"
+                     width="240">
             </div>
             <div class="profile-overview">
                 <div class="profile-overview-content">
@@ -32,15 +31,18 @@
                     </div>
                     <div class="basic-info">
                         <h1 class="left-float"><span>{{profile.firstName + " " + profile.lastName}}</span></h1>
-                        <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditName">
+                        <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditName"
+                           ng-click="GetName()">
                             <div class="btn-img-edit-20"></div>
                         </a>
                         <div class="clear"></div>
-                        <p class="title left-float" ng-model="headline">{{headline}}</p>
-                        <a class="left-float btn-edit headline" href="#" data-toggle="modal" data-target="#EditHeadline">
+                        <p class="title left-float">{{profile.headline}}</p>
+                        <a class="left-float btn-edit headline" href="#" data-toggle="modal"
+                           data-target="#EditHeadline" ng-click="GetHeadline()">
                             <div class="btn-img-edit-20"></div>
                         </a>
-                        <div class="clear"></div> <a href="#" class="left-float" title="Find other members in {{profile.country}}">{{profile.country}}</a>
+                        <div class="clear"></div>
+                        <a href="#" class="left-float" title="Find other members in {{profile.country}}">{{profile.country}}</a>
                         <a class="locality left-float" href="#" title="Find other members in this industry">{{profile.industry}}</a>
                         <a class="left-float btn-edit" href="#" data-toggle="modal" data-target="#EditCountry">
                             <div class="btn-img-edit-15"></div>
@@ -55,12 +57,15 @@
                                     </div>
                                     <div class="modal-body">
                                         <label>FirstName:</label>
-                                        <input type="text" class="form-control" ng-model="firstName" />
+                                        <input type="text" class="form-control" ng-model="firstName"
+                                               ng-init="profile.firstName"/>
                                         <label>LastName:</label>
-                                        <input type="text" class="form-control" ng-model="lastName" />
+                                        <input type="text" class="form-control" ng-model="lastName"/>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveNewName()">Save</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                ng-click="SaveNewName()">Save
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -75,11 +80,14 @@
                                     </div>
                                     <div class="modal-body">
                                         <label>Your professional headline</label>
-                                        <input type="text" class="form-control" ng-model="newHeadline" />
-                                        <p>Example: Experienced Transportation Executive, Web Designer and Information Architect, Visionary Entrepreneur and Investor</p>
+                                        <input type="text" class="form-control" ng-model="newHeadline"/>
+                                        <p>Example: Experienced Transportation Executive, Web Designer and Information
+                                            Architect, Visionary Entrepreneur and Investor</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveHeadline()">Save</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                ng-click="SaveHeadline()">Save
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -90,17 +98,19 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Update Your Country</h4>
+                                        <h4 class="modal-title" ng-click="GetCountry()">Update Your Country</h4>
                                     </div>
                                     <div class="modal-body">
                                         <label>Country:</label>
                                         <!--<select class="form-control bfh-countries" data-country="US"></select>-->
-                                        <input type="text" class="form-control" ng-model="country" />
+                                        <input type="text" class="form-control" ng-model="country"/>
                                         <label>Industry:</label>
-                                        <input type="text" class="form-control" ng-model="industry" />
+                                        <input type="text" class="form-control" ng-model="industry"/>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveNewLocation()">Save</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                ng-click="SaveNewLocation()">Save
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -111,8 +121,10 @@
                         <tr>
                             <td><a class="summary-title" href="#">Current</a>
                             </td>
-                            <td> <a href="#" ng-repeat="exp in profile.currentExperience" ng-if="IsPreviuosElement($index)"> {{exp.organization}},</a>
-                                <a href="#" ng-repeat="exp in profile.currentExperience" ng-if="IsEndElementCanShow($index)"> {{exp.organization}}</a>
+                            <td><a href="#" ng-repeat="exp in profile.experiences"
+                                   ng-if="IsPreviuosElement($index)"> {{exp.organization}},</a>
+                                <a href="#" ng-repeat="exp in profile.experiences"
+                                   ng-if="IsEndElementCanShow($index)"> {{exp.organization}}</a>
                             </td>
                             <td>
                                 <a class="left-float btn-edit" href="#background-experience">
@@ -124,7 +136,7 @@
                         <tr>
                             <td><a class="summary-title" href="#">Previuos</a>
                             </td>
-                            <td> <a href="#" ng-repeat="exp in profile.currentExperience" ng-if="IsNextElement($index)">{{exp.organization}}, </a>
+                            <td><a href="#" ng-repeat="exp in profile.experiences" ng-if="IsNextElement($index)">{{exp.organization}}, </a>
                             </td>
                             <td>
                                 <a class="left-float btn-edit" href="#background-project">
@@ -136,7 +148,7 @@
                         <tr>
                             <td><a class="summary-title" href="#">Education</a>
                             </td>
-                            <td> <a href="#" ng-repeat="edu in profile.education" ng-if="IsPreviuosElement($index)">{{edu.schoolName}}, </a>
+                            <td><a href="#" ng-repeat="edu in profile.education" ng-if="IsPreviuosElement($index)">{{edu.schoolName}}, </a>
                                 <a href="#" ng-repeat="edu in profile.education" ng-if="IsEndElementCanShow($index)">{{edu.schoolName}}</a>
                             </td>
                             <td>
@@ -152,7 +164,8 @@
                     <div class="follower-count right-float"><strong>{{profile.followers}}</strong>followers</div>
                     <div class="group-btn left-float">
                         <button class="btn-primary btn-follow" type="button">Follow</button>
-                        <button class="btn-primary dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown"> <span class="caret"></span>
+                        <button class="btn-primary dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown">
+                            <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="#">View recent activity</a>
@@ -202,14 +215,16 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Edit Summary</h4>
+                                            <h4 class="modal-title" ng-click="GetSummaryContent()">Edit Summary</h4>
                                         </div>
                                         <div class="modal-body">
                                             <label>Summary</label>
                                             <textarea class="form-control" rows="15" ng-model="newSummary"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveNewSummary()">Save</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="SaveNewSummary()">Save
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -232,30 +247,36 @@
                         </div>
                         <div class="experience-content">
                             <!--Current Experince-->
-                            <div class="experience-item-view" ng-repeat="exp in profile.currentExperience">
+                            <div class="experience-item-view" ng-repeat="exp in profile.experiences">
                                 <div class="experince-header left-float">
                                     <h1 class="left-float"><a href="#">{{exp.position}}</a></h1>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
-                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteExpObject" ng-click="setCurrentIndxObject($index)">
+                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                       data-target="#DeleteExpObject" ng-click="setCurrentIndxObject($index)">
                                         <div class="btn-img-delete-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                     <p class="left-float"><a href="#">{{exp.organization}}</a>
                                     </p>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
-                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteExpObject" ng-click="setCurrentIndxObject($index)">
+                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                       data-target="#DeleteExpObject" ng-click="setCurrentIndxObject($index)">
                                         <div class="btn-img-delete-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                     <p class="left-float">{{exp.time}}</p>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditExperience" ng-click="GetCurrentExperience($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
-                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteExpObject" ng-click="setCurrentIndxObject($index)">
+                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                       data-target="#DeleteExpObject" ng-click="setCurrentIndxObject($index)">
                                         <div class="btn-img-delete-15"></div>
                                     </a>
                                     <div class="clear"></div>
@@ -266,7 +287,9 @@
                                 <div class="clear"></div>
                                 <div class="experince-summary">
                                     <p class="left-float">{{exp.description}}</p>
-                                    <a class="right-float btn-edit summaryExperience" href="#" data-toggle="modal" data-target="#EditExperience" ng-click="GetCurrentExperience($index)" ng-if="IsHasValue(exp.description)">
+                                    <a class="right-float btn-edit summaryExperience" href="#" data-toggle="modal"
+                                       data-target="#EditExperience" ng-click="GetCurrentExperience($index)"
+                                       ng-if="IsHasValue(exp.description)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
                                     <div class="clear"></div>
@@ -303,8 +326,10 @@
                                         <div class="avatar left-float">
                                             <img ng-src="{{recom.avatar}}" width="40px" height="40px">
                                         </div>
-                                        <div class="sumary-info left-float"> <a class="left-float connect" href="#">{{recom.name}}</a>
-                                            <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteRecommentObject" ng-click="setCurrentChildIndxObject(profile.currentExperience, exp, $index)">
+                                        <div class="sumary-info left-float"><a class="left-float connect" href="#">{{recom.name}}</a>
+                                            <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                               data-target="#DeleteRecommentObject"
+                                               ng-click="setCurrentChildIndxObject(profile.experiences, exp, $index)">
                                                 <div class="btn-img-delete-15"></div>
                                             </a>
                                             <div class="clear"></div>
@@ -318,21 +343,28 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
                                                 <h4 class="modal-title">Update Your Experience</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <label>Company Name</label>
-                                                <input type="text" class="form-control" ng-model="EditExperienceItem.organization" />
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditExperienceItem.organization"/>
                                                 <label>Title</label>
-                                                <input type="text" class="form-control" ng-model="EditExperienceItem.position" />
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditExperienceItem.position"/>
                                                 <label>Time</label>
-                                                <input type="text" class="form-control" ng-model="EditExperienceItem.time" />
+                                                <input type="text" class="form-control"
+                                                       ng-model="EditExperienceItem.time"/>
                                                 <label>Description</label>
-                                                <textarea rows="5" class="form-control" ng-model="EditExperienceItem.description"></textarea>
+                                                <textarea rows="5" class="form-control"
+                                                          ng-model="EditExperienceItem.description"></textarea>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveExperience()">Save</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="SaveExperience()">Save
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -342,23 +374,29 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
                                                 <h4 class="modal-title">Add New Experience</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <label>Company Name</label>
-                                                <input type="text" class="form-control" ng-model="NewExperience.organization" />
+                                                <input type="text" class="form-control"
+                                                       ng-model="NewExperience.organization"/>
                                                 <label>Title</label>
-                                                <input type="text" class="form-control" ng-model="NewExperience.position" />
+                                                <input type="text" class="form-control"
+                                                       ng-model="NewExperience.position"/>
                                                 <label>Time</label>
-                                                <input type="text" class="form-control" ng-model="NewExperience.time" />
+                                                <input type="text" class="form-control" ng-model="NewExperience.time"/>
                                                 <label>Description</label>
-                                                <textarea rows="5" class="form-control" ng-model="NewExperience.description"></textarea>
+                                                <textarea rows="5" class="form-control"
+                                                          ng-model="NewExperience.description"></textarea>
                                                 <label>URL Company Logo</label>
-                                                <input type="text" class="form-control" ng-model="NewExperience.logo" />
+                                                <input type="text" class="form-control" ng-model="NewExperience.logo"/>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveNewExperience()">Save</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="SaveNewExperience()">Save
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -368,14 +406,17 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
                                                 <h4 class="modal-title">Delete</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <label>Are you sure delete?</label>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="deleteObject(profile.currentExperience)">Delete</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="deleteObject(profile.experiences)">Delete
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -385,14 +426,17 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
                                                 <h4 class="modal-title">Delete</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <label>Are you sure delete?</label>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="deleteChildObject(profile.currentExperience)">Delete</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="deleteChildObject(profile.experiences)">Delete
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -416,25 +460,31 @@
                             <div class="project-item-view" ng-repeat="pr in profile.projects">
                                 <div class="project-header">
                                     <h1 class="left-float"><a>{{pr.projectName}}</a></h1>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditProject" ng-click="GetProject($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditProject" ng-click="GetProject($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
-                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteProObject" ng-click="setCurrentIndxObject($index)">
+                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                       data-target="#DeleteProObject" ng-click="setCurrentIndxObject($index)">
                                         <div class="btn-img-delete-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                     <p class="left-float">{{pr.time}}</p>
-                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditProject" ng-click="GetProject($index)">
+                                    <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                       data-target="#EditProject" ng-click="GetProject($index)">
                                         <div class="btn-img-edit-15"></div>
                                     </a>
-                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteProObject" ng-click="setCurrentIndxObject($index)">
+                                    <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                       data-target="#DeleteProObject" ng-click="setCurrentIndxObject($index)">
                                         <div class="btn-img-delete-15"></div>
                                     </a>
                                     <div class="clear"></div>
                                 </div>
                                 <div class="project-summary">
                                     <p class="left-float">{{pr.description}}</p>
-                                    <a class="right-float btn-edit sumaryExperience" href="#" data-toggle="modal" data-target="#EditProject" ng-click="GetProject($index)" ng-if="IsHasValue(pr.description)">
+                                    <a class="right-float btn-edit sumaryExperience" href="#" data-toggle="modal"
+                                       data-target="#EditProject" ng-click="GetProject($index)"
+                                       ng-if="IsHasValue(pr.description)">
                                         <div class="btn-img-edit-15 btn-edit-description"></div>
                                     </a>
                                     <div class="clear"></div>
@@ -444,10 +494,13 @@
                                     <p>► {{pr.teamMember.length}} team members, including:</p>
                                     <div class="team-member left-float" ng-repeat="member in pr.teamMember">
                                         <div class="avatar left-float">
-                                            <img src="{{member.avatar}}" width="40px" height="40px">
+                                            <img ng-src="{{member.avatar}}" width="40px" height="40px"
+                                                 onerror="this.style.display='none'">
                                         </div>
-                                        <div class="sumary-info left-float"> <a class="connect left-float" href="#">{{member.name}}</a>
-                                            <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteTeamMemberObject" ng-click="setCurrentChildIndxObject(profile.projects, pr, $index)">
+                                        <div class="sumary-info left-float"><a class="connect left-float" href="#">{{member.name}}</a>
+                                            <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                               data-target="#DeleteTeamMemberObject"
+                                               ng-click="setCurrentChildIndxObject(profile.projects, pr, $index)">
                                                 <div class="btn-img-delete-15"></div>
                                             </a>
                                             <div class="clear"></div>
@@ -466,14 +519,18 @@
                                         </div>
                                         <div class="modal-body">
                                             <label>Project Name</label>
-                                            <input type="text" class="form-control" ng-model="EditProjectItem.projectName" />
+                                            <input type="text" class="form-control"
+                                                   ng-model="EditProjectItem.projectName"/>
                                             <label>Time</label>
-                                            <input type="text" class="form-control" ng-model="EditProjectItem.time" />
+                                            <input type="text" class="form-control" ng-model="EditProjectItem.time"/>
                                             <label>Description</label>
-                                            <textarea rows="5" class="form-control" ng-model="EditProjectItem.description"></textarea>
+                                            <textarea rows="5" class="form-control"
+                                                      ng-model="EditProjectItem.description"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveProject()">Save</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="SaveProject()">Save
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -488,14 +545,17 @@
                                         </div>
                                         <div class="modal-body">
                                             <label>Project Name</label>
-                                            <input type="text" class="form-control" ng-model="NewProject.projectName" />
+                                            <input type="text" class="form-control" ng-model="NewProject.projectName"/>
                                             <label>Time</label>
-                                            <input type="text" class="form-control" ng-model="NewProject.time" />
+                                            <input type="text" class="form-control" ng-model="NewProject.time"/>
                                             <label>Description</label>
-                                            <textarea rows="5" class="form-control" ng-model="NewProject.description"></textarea>
+                                            <textarea rows="5" class="form-control"
+                                                      ng-model="NewProject.description"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveNewProject()">Save</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="SaveNewProject()">Save
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -512,7 +572,9 @@
                                             <label>Are you sure delete?</label>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="deleteObject(profile.projects)">Delete</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="deleteObject(profile.projects)">Delete
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -529,7 +591,9 @@
                                             <label>Are you sure delete?</label>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="deleteChildObject(profile.projects)">Delete</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="deleteChildObject(profile.projects)">Delete
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -549,10 +613,12 @@
                         <div class="clear"></div>
                         <div class="skill-content">
                             <p class="skill-top-skill" ng-if="isHasValueInArray(profile.skills.length)">Top Skills</p>
-                            <div class="skill-item" ng-repeat="skill in profile.skills" ng-if="IsTopSkill($index)">
+                            <div class="skill-item" ng-repeat="skill in profile.skills | oderByRate: 'rate'"
+                                 ng-if="IsTopSkill($index)">
                                 <button class="btn-primary btn-skill" type="button">{{skill.rate}}</button>
                                 <button class="btn-primary btn-skill-detail" type="button">{{skill.skillName}}</button>
-                                <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteSkillObject" ng-click="setCurrentIndxObject($index)">
+                                <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                   data-target="#DeleteSkillObject" ng-click="setCurrentIndxObject($index)">
                                     <div class="btn-img-delete-15"></div>
                                 </a>
                                 <div class="clear"></div>
@@ -561,15 +627,18 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
                                                 <h4 class="modal-title">Add New Skill</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <label>Skill Name</label>
-                                                <input type="text" class="form-control" ng-model="NewSkill.skillName" />
+                                                <input type="text" class="form-control" ng-model="NewSkill.skillName"/>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveNewSkill()">Save</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="SaveNewSkill()">Save
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -579,14 +648,17 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
                                                 <h4 class="modal-title">Delete</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <label>Are you sure delete?</label>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="deleteObject(profile.skills)">Delete</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        ng-click="deleteObject(profile.skills)">Delete
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -594,11 +666,14 @@
                             </div>
                             <div class="clear"></div>
                             <!--Load other skill-->
-                            <p class="skill" ng-if="IsHasOtherSkill(profile.skills.length)">{{profile.firstName}} also knows about...</p>
-                            <div class="skill-item-more" ng-repeat="skill in profile.skills" ng-if="IsOtherSkill($index)">
+                            <p class="skill" ng-if="IsHasOtherSkill(profile.skills.length)">{{profile.firstName}} also
+                                knows about...</p>
+                            <div class="skill-item-more" ng-repeat="skill in profile.skills | oderByRate: 'rate'"
+                                 ng-if="IsOtherSkill($index)">
                                 <button class="btn-primary btn-skill" type="button">{{skill.rate}}</button>
                                 <button class="btn-primary btn-skill-detail" type="button">{{skill.skillName}}</button>
-                                <a class="left-float btn-delete other-skill btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteSkillObject" ng-click="setCurrentIndxObject($index)">
+                                <a class="left-float btn-delete other-skill btn-delete-15" href="#" data-toggle="modal"
+                                   data-target="#DeleteSkillObject" ng-click="setCurrentIndxObject($index)">
                                     <div class="btn-img-delete-15"></div>
                                 </a>
                             </div>
@@ -624,16 +699,18 @@
                                         </div>
                                         <div class="modal-body">
                                             <label>School Name</label>
-                                            <input type="text" class="form-control" ng-model="NewEducation.schoolName" />
+                                            <input type="text" class="form-control" ng-model="NewEducation.schoolName"/>
                                             <label>Grade</label>
-                                            <input type="text" class="form-control" ng-model="NewEducation.grade" />
+                                            <input type="text" class="form-control" ng-model="NewEducation.grade"/>
                                             <label>Time</label>
-                                            <input type="text" class="form-control" ng-model="NewEducation.time" />
+                                            <input type="text" class="form-control" ng-model="NewEducation.time"/>
                                             <label>URL School Logo</label>
-                                            <input type="text" class="form-control" ng-model="NewEducation.logo" />
+                                            <input type="text" class="form-control" ng-model="NewEducation.logo"/>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveNewEducation()">Save</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="SaveNewEducation()">Save
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -643,27 +720,33 @@
                         <div class="educations-content" ng-repeat="school in profile.education">
                             <div class="educations-header left-float">
                                 <h1 class="left-float"><a href="#">{{school.schoolName}}</a></h1>
-                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                   data-target="#EditEducation" ng-click="GetEducation($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
-                                <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteSchoolObject" ng-click="setCurrentIndxObject($index)">
+                                <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                   data-target="#DeleteSchoolObject" ng-click="setCurrentIndxObject($index)">
                                     <div class="btn-img-delete-15"></div>
                                 </a>
                                 <div class="clear"></div>
                                 <p class="left-float"><a href="#">{{school.grade}}</a>
                                 </p>
-                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                   data-target="#EditEducation" ng-click="GetEducation($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
-                                <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteSchoolObject" ng-click="setCurrentIndxObject($index)">
+                                <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                   data-target="#DeleteSchoolObject" ng-click="setCurrentIndxObject($index)">
                                     <div class="btn-img-delete-15"></div>
                                 </a>
                                 <div class="clear"></div>
                                 <p class="left-float">{{school.time}}</p>
-                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal" data-target="#EditEducation" ng-click="GetEducation($index)">
+                                <a class="left-float btn-edit btn-edit-15" href="#" data-toggle="modal"
+                                   data-target="#EditEducation" ng-click="GetEducation($index)">
                                     <div class="btn-img-edit-15"></div>
                                 </a>
-                                <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal" data-target="#DeleteSchoolObject" ng-click="setCurrentIndxObject($index)">
+                                <a class="left-float btn-delete btn-delete-15" href="#" data-toggle="modal"
+                                   data-target="#DeleteSchoolObject" ng-click="setCurrentIndxObject($index)">
                                     <div class="btn-img-delete-15"></div>
                                 </a>
                                 <div class="clear"></div>
@@ -681,14 +764,17 @@
                                         </div>
                                         <div class="modal-body">
                                             <label>School Name</label>
-                                            <input type="text" class="form-control" ng-model="EdiEducationItem.schoolName" />
+                                            <input type="text" class="form-control"
+                                                   ng-model="EdiEducationItem.schoolName"/>
                                             <label>Grade</label>
-                                            <input type="text" class="form-control" ng-model="EdiEducationItem.grade" />
+                                            <input type="text" class="form-control" ng-model="EdiEducationItem.grade"/>
                                             <label>Time</label>
-                                            <input type="text" class="form-control" ng-model="EdiEducationItem.time" />
+                                            <input type="text" class="form-control" ng-model="EdiEducationItem.time"/>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveEducation()">Save</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="SaveEducation()">Save
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -705,7 +791,9 @@
                                             <label>Are you sure delete?</label>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="deleteObject(profile.education)">Delete</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="deleteObject(profile.education)">Delete
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -718,6 +806,14 @@
         </div>
     </div>
 </div>
-</body>
 
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="npm_component/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+<script src="app.js"></script>
+</body>
 </html>

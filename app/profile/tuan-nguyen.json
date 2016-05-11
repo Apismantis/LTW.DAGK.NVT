@@ -1,43 +1,20 @@
 {
   "firstName": "Tuan",
   "lastName": "Nguyen",
-  "country": "Ho Chi Minh City Area",
+  "headline": "CEO At LinkedIn",
+  "country": "Viet Nam",
   "industry": "Software Engeneer",
   "followers": "4,039,047",
   "profilePage": "https://www.facebook.com/tuannguyen.305",
   "avatar": "img/tuannguyen/avatar.jpg",
   "summary": "Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy.<br><br>Currently CEO atLinkedIn, the web's largest and most powerful network of professionals.<br><br>Prior to LinkedIn, was an Executive in Residence at Accel Partners and Greylock Partners. Primarily focused on advising the leadership teams of the firm's existing consumer technology portfolio companies while also working closely with the firm’s partners to evaluate new investment opportunities.<br><br>Previously served in key leadership roles at Yahoo! for over seven years, most recently as the Executive Vice President of Yahoo!'s Network Division managing Yahoo's consumer web product portfolio, including Yahoo's Front Page, Mail, Search, and Media products.<br><br>Specialties: general management, corporate development, product development, business operations, strategy, product marketing, non-profit governance",
-  "currentExperience": [
+  "experiences": [
     {
       "position": "CEO",
       "organization": "LinkedIn",
       "logo": "img/tuannguyen/logo-linkedin.png",
       "time": "December 2008 – Present (7 years 5 months)",
-      "description": "Connecting the world's professionals to make them more productive and successful. Since joining the company in December 2008, LinkedIn has expanded its global platform to 23 languages and more than 30 offices around the world, grown its membership base from 33M to more than 347M, and increased its revenue from $78M to over $2.2B in 2014.",
-      "post": [
-        {
-          "title": "LinkedIn's Vision for the Next 10 Years",
-          "thumnail": ""
-        },
-        {
-          "title": "Bloomberg: LinkedIn Growth Has Reached 'Critical Mass",
-          "thumnail": ""
-        }
-      ],
-      "subPost": [
-        {
-          "title": "LinkedIn's Culture of Transformation",
-          "thumnail": ""
-        },
-        {
-          "title": "Building a Culture of Compassion",
-          "thumnail": ""
-        },
-        {
-          "title": "NY TImes: Jeff Weiner of LinkedIn, on the 'Next Play' Philosophy",
-          "thumnail": ""
-        }
-      ]
+      "description": "Connecting the world's professionals to make them more productive and successful. Since joining the company in December 2008, LinkedIn has expanded its global platform to 23 languages and more than 30 offices around the world, grown its membership base from 33M to more than 347M, and increased its revenue from $78M to over $2.2B in 2014."
     },
     {
       "position": "Member, Board of Directors",
