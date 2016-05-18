@@ -1101,3 +1101,35 @@ h4 {
   content: "";
   padding: 0;
 }
+
+.nav {
+  display: block;
+    height: 60px;
+    width: 100%;
+    background: #287bbc;
+    color: white;
+}
+
+.nav-right-menu {
+    display: block;
+    vertical-align: middle;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+.nav a {
+    color: white;
+    font-size: 16px;
+  padding-left: 15px;
+}
+
+.nav p {
+  margin: 0 0 !important;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    margin-left: -24px;
+    margin-top: 10px;
+}

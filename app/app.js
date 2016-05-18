@@ -1,7 +1,33 @@
 var CVApp = angular.module('CVPage', ['ngSanitize', 'firebase']);
 CVApp.controller('CVPageCtrl', function ($scope, $http, $firebaseObject) {
-    var refer = new Firebase("https://tuan-nguyen-bt.firebaseio.com/");
-    $scope.profile = $firebaseObject(refer);
+    var ref = new Firebase("https://tuan-nguyen-bt.firebaseio.com/");
+    $scope.profile = $firebaseObject(ref);
+
+    var authData = ref.getAuth();
+    // Check authentication
+    if (authData != null) {
+        var provider = authData.provider;
+        switch(authData.provider) {
+            case 'password':
+                $scope.username = authData.password.email.replace(/@.*/, '');
+                break;
+
+            case 'facebook':
+                $scope.username = authData.facebook.displayName;
+                break;
+        }
+    }
+    else {
+        // User not authentication
+        // Redirect to login page
+        window.location = "index.html";
+    }
+
+    // Log out user
+    $scope.Logout = function () {
+        ref.unauth();
+        window.location = "index.html";
+    }
 
     /*$http.get('profile/tuan-nguyen.json').success(function (data) {
      $scope.profile = data;

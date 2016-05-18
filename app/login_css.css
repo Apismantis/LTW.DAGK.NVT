@@ -1,0 +1,55 @@
+
+.container {
+    margin-top: 100px;
+}
+
+.panel-heading {
+    padding: 5px 15px;
+}
+
+.body-panel {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+}
+
+.panel-footer {
+    padding: 4px 15px;
+    color: #A0A0A0;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto 5px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+body {
+    background: url(img/bg.png);
+    font-family: arial;
+}
+
+.footer {
+    font-size: 13px !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+}
+
+.center-noti {
+    text-align: center;
+    color: forestgreen;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.bt-facebook {
+    background: #3B5998;
+    color: white;
+}

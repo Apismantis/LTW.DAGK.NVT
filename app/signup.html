@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="login_css.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="col-md-5 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading header"><strong>Sign Up</strong>
+            </div>
+            <div class="panel-body">
+                <form role="form">
+                    <fieldset>
+                        <div class="row">
+                            <div class="center-block">
+                                <img class="profile-img" src="img/sc_logo.png" alt="Logo">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="center-noti">
+                                <span>Enter Email and password to sign up</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                                <span class="input-group-addon">
+													<i class="glyphicon glyphicon-user"></i>
+												</span>
+                                        <input class="form-control" placeholder="Email" name="email" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                                <span class="input-group-addon">
+													<i class="glyphicon glyphicon-lock"></i>
+												</span>
+                                        <input class="form-control" placeholder="Password" name="password"
+                                               type="password" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-md btn-block" value="Sign up">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="panel-footer footer"><a href="index.html" onClick=""> Sign In</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+
+</body>
+
+</html>
